@@ -1,8 +1,10 @@
 extends Node
 
-signal recording_toggled;
+# A listenable event that fires whenever the recording state changes.
+signal recording_toggled; 
 
-var is_recording: bool = false;
+# Global variable that keeps track of recording states between different scripts.
+var is_recording: bool = false; 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_recording"):
