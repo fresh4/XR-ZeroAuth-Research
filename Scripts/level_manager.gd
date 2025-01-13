@@ -41,7 +41,7 @@ func save_data():
 	var filename: String = "headset_data.csv";
 	var csv = FileAccess.open("user://" + filename, FileAccess.WRITE);
 	csv.store_string(data);
-	print("Saving " + filename + " in user directory. File size: " + str(csv.get_length()/1000) + "kb");
+	print("Saving " + filename + " in user directory. File size: " + str(csv.get_length()/1000.0) + "kb");
 	OS.shell_show_in_file_manager(ProjectSettings.globalize_path("user://"));
 
 func _on_recording_toggled():

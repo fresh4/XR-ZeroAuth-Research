@@ -10,3 +10,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_recording"):
 		is_recording = !is_recording;
 		recording_toggled.emit();
+	elif event.is_action_pressed("reset"):
+		get_tree().reload_current_scene();
+		is_recording = false;
