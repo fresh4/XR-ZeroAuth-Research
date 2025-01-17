@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dntlvp3qctina"
 path.s3tc="res://.godot/imported/Wood081_1K-JPG_Displacement.jpg-0a0694cd1d2bffec1e06b0577683c34d.s3tc.ctex"
+path.etc2="res://.godot/imported/Wood081_1K-JPG_Displacement.jpg-0a0694cd1d2bffec1e06b0577683c34d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Wood/Wood081_1K-JPG_Displacement.jpg"
-dest_files=["res://.godot/imported/Wood081_1K-JPG_Displacement.jpg-0a0694cd1d2bffec1e06b0577683c34d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wood081_1K-JPG_Displacement.jpg-0a0694cd1d2bffec1e06b0577683c34d.s3tc.ctex", "res://.godot/imported/Wood081_1K-JPG_Displacement.jpg-0a0694cd1d2bffec1e06b0577683c34d.etc2.ctex"]
 
 [params]
 

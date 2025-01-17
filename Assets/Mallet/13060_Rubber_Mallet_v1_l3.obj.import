@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bn28cqkmsesgv"
+path="res://.godot/imported/13060_Rubber_Mallet_v1_l3.obj-133d4492a24488bc8a657f9c6fbe0484.mesh"
+
+[deps]
+
+files=["res://.godot/imported/13060_Rubber_Mallet_v1_l3.obj-133d4492a24488bc8a657f9c6fbe0484.mesh"]
+
+source_file="res://Assets/Mallet/13060_Rubber_Mallet_v1_l3.obj"
+dest_files=["res://.godot/imported/13060_Rubber_Mallet_v1_l3.obj-133d4492a24488bc8a657f9c6fbe0484.mesh", "res://.godot/imported/13060_Rubber_Mallet_v1_l3.obj-133d4492a24488bc8a657f9c6fbe0484.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

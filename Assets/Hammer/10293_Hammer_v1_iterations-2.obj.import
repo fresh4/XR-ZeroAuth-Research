@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjim757q73oab"
+path="res://.godot/imported/10293_Hammer_v1_iterations-2.obj-9daa124c8fe7336c8e18b584e772329d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/10293_Hammer_v1_iterations-2.obj-9daa124c8fe7336c8e18b584e772329d.mesh"]
+
+source_file="res://Assets/Hammer/10293_Hammer_v1_iterations-2.obj"
+dest_files=["res://.godot/imported/10293_Hammer_v1_iterations-2.obj-9daa124c8fe7336c8e18b584e772329d.mesh", "res://.godot/imported/10293_Hammer_v1_iterations-2.obj-9daa124c8fe7336c8e18b584e772329d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

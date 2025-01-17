@@ -15,6 +15,7 @@ func _physics_process(_delta: float) -> void:
 	if Globals.is_recording:
 		record_headset();
 
+# Handle input events.
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("recenter_headset"):
 		recenter_headset();

@@ -48,11 +48,22 @@ reset={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_32="Hammer"
+
 [physics]
 
 3d/physics_engine="JoltPhysics3D"
+jolt_3d/collisions/areas_detect_static_bodies=true
+jolt_3d/collisions/report_all_kinematic_contacts=true
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
 
 [xr]
 
 openxr/enabled=true
+openxr/extensions/hand_interaction_profile=true
 shaders/enabled=true
