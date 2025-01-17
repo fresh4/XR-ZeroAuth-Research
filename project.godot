@@ -25,6 +25,10 @@ Globals="*res://Scripts/globals.gd"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 recenter_headset={
