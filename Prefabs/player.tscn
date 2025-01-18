@@ -33,6 +33,7 @@ grab_distance = 0.1
 ranged_enable = false
 
 [node name="XRNode3DL" type="XRNode3D" parent="."]
+visible = false
 tracker = &"/user/hand_tracker/left"
 
 [node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DL"]
@@ -44,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40231, 0, 0)
 mesh = SubResource("BoxMesh_2xnhk")
 
 [node name="XRNode3DR" type="XRNode3D" parent="."]
+visible = false
 tracker = &"/user/hand_tracker/right"
 
 [node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DR"]
