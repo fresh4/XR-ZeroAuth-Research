@@ -373,7 +373,6 @@ shape = SubResource("ConvexPolygonShape3D_bwkfm")
 
 [node name="Cup" parent="CupExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.756863, 0.742091, 0)
-can_sleep = false
 ranged_grab_method = 0
 
 [node name="CoffeeCupObj" type="MeshInstance3D" parent="CupExperiment/Cup"]
@@ -393,7 +392,6 @@ script = ExtResource("15_6jn5i")
 
 [node name="CubeNormalRB" parent="CubeExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(0.963039, 0, 0, 0, 0.963039, 0, 0, 0, 0.963039, 0, 0.8, -0.5)
-can_sleep = false
 ranged_grab_method = 0
 second_hand_grab = 1
 
@@ -412,7 +410,6 @@ script = ExtResource("15_6jn5i")
 
 [node name="CubeWoodRB" parent="CubeExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.8, -0.5)
-can_sleep = false
 ranged_grab_method = 0
 second_hand_grab = 1
 
@@ -431,7 +428,6 @@ script = ExtResource("15_6jn5i")
 
 [node name="CubeMetalRB" parent="CubeExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.8, -0.5)
-can_sleep = false
 ranged_grab_method = 0
 second_hand_grab = 1
 
@@ -453,7 +449,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946, 0.72, 0.5)
 
 [node name="Ball1" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, 0)
-can_sleep = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball1"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -468,7 +463,6 @@ script = ExtResource("15_6jn5i")
 
 [node name="Ball2" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, -0.0607974)
-can_sleep = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball2"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -483,7 +477,6 @@ script = ExtResource("15_6jn5i")
 
 [node name="Ball3" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, -0.126399)
-can_sleep = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball3"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -498,7 +491,6 @@ script = ExtResource("15_6jn5i")
 
 [node name="Ball4" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0848095, 0.0307263, -0.0343514)
-can_sleep = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball4"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -513,7 +505,6 @@ script = ExtResource("15_6jn5i")
 
 [node name="Ball5" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827112, 0.0307263, -0.0985399)
-can_sleep = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball5"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -542,7 +533,6 @@ shape = SubResource("ConcavePolygonShape3D_xpupr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.800367, 0.760752, 0.021661)
 collision_layer = 2147483652
 mass = 2.2
-can_sleep = false
 continuous_cd = true
 ranged_grab_method = 0
 second_hand_grab = 1
@@ -573,7 +563,6 @@ script = ExtResource("15_6jn5i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905966, 0.760752, 0.324396)
 collision_layer = 2147483652
 mass = 0.7
-can_sleep = false
 continuous_cd = true
 ranged_grab_method = 0
 second_hand_grab = 1

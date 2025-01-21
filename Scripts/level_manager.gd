@@ -1,10 +1,10 @@
 extends Node3D
 
-@export var player: XROrigin3D; # Node that represents the Player. Must be imported in editor.
-@onready var headset: XRCamera3D = player.get_node("%Headset"); # Get XR Camera from Player children.
+@export var player: Player; ## Node that represents the Player. Must be imported in editor.
+@onready var headset: XRCamera3D = player.get_node("%Headset"); ## Get XR Camera from Player children.
 
 # Default CSV column headers. Rotation and Position for the headset.
-const headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z\n";
+const headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z";
 var data: String = headers;
 
 func _ready() -> void:

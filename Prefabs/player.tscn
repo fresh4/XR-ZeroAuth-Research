@@ -1,24 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3rc247u6y0xf"]
+[gd_scene load_steps=3 format=3 uid="uid://d3rc247u6y0xf"]
 
-[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_qu8qy"]
+[ext_resource type="Script" path="res://Prefabs/player.gd" id="1_u1ksl"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_03qaj"]
-[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="3_uqdre"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_2xnhk"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[node name="Player" type="XROrigin3D"]
+[node name="Player" type="XROrigin3D" groups=["Player"]]
+script = ExtResource("1_u1ksl")
 
 [node name="Headset" type="XRCamera3D" parent="."]
 unique_name_in_owner = true
 
 [node name="LeftHandController" type="XRController3D" parent="."]
+visible = false
 tracker = &"left_hand"
 show_when_tracked = true
 
-[node name="LeftHand" parent="LeftHandController" instance=ExtResource("1_qu8qy")]
-
-[node name="FunctionPickup" parent="LeftHandController/LeftHand" instance=ExtResource("2_03qaj")]
+[node name="FunctionPickup" parent="LeftHandController" instance=ExtResource("2_03qaj")]
 grab_distance = 0.1
 ranged_enable = false
 
@@ -26,30 +22,24 @@ ranged_enable = false
 tracker = &"right_hand"
 show_when_tracked = true
 
-[node name="RightHand" parent="RightHandController" instance=ExtResource("3_uqdre")]
-
-[node name="FunctionPickup" parent="RightHandController/RightHand" instance=ExtResource("2_03qaj")]
+[node name="FunctionPickup" parent="RightHandController" instance=ExtResource("2_03qaj")]
 grab_distance = 0.1
 ranged_enable = false
 
 [node name="XRNode3DL" type="XRNode3D" parent="."]
-visible = false
 tracker = &"/user/hand_tracker/left"
 
-[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DL"]
+[node name="LeftHandMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DL"]
+unique_name_in_owner = true
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XRNode3DL/OpenXRFbHandTrackingMesh"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XRNode3DL"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40231, 0, 0)
-mesh = SubResource("BoxMesh_2xnhk")
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XRNode3DL/LeftHandMesh"]
 
 [node name="XRNode3DR" type="XRNode3D" parent="."]
-visible = false
 tracker = &"/user/hand_tracker/right"
 
-[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DR"]
+[node name="RightHandMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DR"]
 hand = 1
+unique_name_in_owner = true
 bones/0/name = "RightPalm"
 bones/1/name = "RightHand"
 bones/2/name = "RightThumbMetacarpal"
@@ -77,9 +67,5 @@ bones/23/name = "RightLittleIntermediate"
 bones/24/name = "RightLittleDistal"
 bones/25/name = "RightLittleTip"
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XRNode3DR/OpenXRFbHandTrackingMesh"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XRNode3DR/RightHandMesh"]
 hand_tracker = &"/user/hand_tracker/right"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XRNode3DR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443783, 0, 0)
-mesh = SubResource("BoxMesh_2xnhk")

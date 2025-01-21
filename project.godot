@@ -29,6 +29,10 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 import/blender/enabled=false
 
+[global_group]
+
+Player=""
+
 [input]
 
 recenter_headset={
