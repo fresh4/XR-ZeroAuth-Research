@@ -26,18 +26,20 @@ show_when_tracked = true
 grab_distance = 0.1
 ranged_enable = false
 
-[node name="XRNode3DL" type="XRNode3D" parent="."]
+[node name="LeftHandXRNode" type="XRNode3D" parent="."]
+unique_name_in_owner = true
 tracker = &"/user/hand_tracker/left"
 
-[node name="LeftHandMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DL"]
+[node name="LeftHandMesh" type="OpenXRFbHandTrackingMesh" parent="LeftHandXRNode"]
 unique_name_in_owner = true
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XRNode3DL/LeftHandMesh"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandXRNode/LeftHandMesh"]
 
-[node name="XRNode3DR" type="XRNode3D" parent="."]
+[node name="RightHandXRNode" type="XRNode3D" parent="."]
+unique_name_in_owner = true
 tracker = &"/user/hand_tracker/right"
 
-[node name="RightHandMesh" type="OpenXRFbHandTrackingMesh" parent="XRNode3DR"]
+[node name="RightHandMesh" type="OpenXRFbHandTrackingMesh" parent="RightHandXRNode"]
 hand = 1
 unique_name_in_owner = true
 bones/0/name = "RightPalm"
@@ -67,5 +69,5 @@ bones/23/name = "RightLittleIntermediate"
 bones/24/name = "RightLittleDistal"
 bones/25/name = "RightLittleTip"
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XRNode3DR/RightHandMesh"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHandXRNode/RightHandMesh"]
 hand_tracker = &"/user/hand_tracker/right"

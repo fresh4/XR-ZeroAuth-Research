@@ -361,6 +361,26 @@ mesh = SubResource("BoxMesh_7p7uu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/TableR/Platform"]
 shape = SubResource("ConcavePolygonShape3D_jpqd5")
 
+[node name="Platform2" type="StaticBody3D" parent="Level/TableR"]
+transform = Transform3D(-4.20957e-08, 0, -0.963039, 0, 0.963039, 0, 0.963039, 0, -4.20957e-08, 0.496395, 0.498854, 0.0310512)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/TableR/Platform2"]
+material_override = SubResource("StandardMaterial3D_0jcag")
+mesh = SubResource("BoxMesh_7p7uu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/TableR/Platform2"]
+shape = SubResource("ConcavePolygonShape3D_jpqd5")
+
+[node name="Platform3" type="StaticBody3D" parent="Level/TableR"]
+transform = Transform3D(-4.20957e-08, 0, -0.963039, 0, 0.963039, 0, 0.963039, 0, -4.20957e-08, 0.225883, 0.498854, 0.0310512)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/TableR/Platform3"]
+material_override = SubResource("StandardMaterial3D_0jcag")
+mesh = SubResource("BoxMesh_7p7uu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/TableR/Platform3"]
+shape = SubResource("ConcavePolygonShape3D_jpqd5")
+
 [node name="Table" type="MeshInstance3D" parent="Level/TableR"]
 material_override = SubResource("StandardMaterial3D_vrm3w")
 mesh = SubResource("BoxMesh_d8h5f")
@@ -388,10 +408,47 @@ shape = SubResource("ConvexPolygonShape3D_qj2wf")
 transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
+[node name="Cup2" parent="CupExperiment" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.756863, 0.742091, 0.186579)
+ranged_grab_method = 0
+
+[node name="CoffeeCupObj" type="MeshInstance3D" parent="CupExperiment/Cup2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("24_0euoa")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CupExperiment/Cup2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_qj2wf")
+
+[node name="Tracker" type="Node3D" parent="CupExperiment/Cup2"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
+[node name="Cup3" parent="CupExperiment" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.756863, 0.742091, 0.431079)
+ranged_grab_method = 0
+
+[node name="CoffeeCupObj" type="MeshInstance3D" parent="CupExperiment/Cup3"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("24_0euoa")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CupExperiment/Cup3"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_qj2wf")
+
+[node name="Tracker" type="Node3D" parent="CupExperiment/Cup3"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
 [node name="CubeExperiment" type="Node3D" parent="."]
 
 [node name="CubeNormalRB" parent="CubeExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(0.963039, 0, 0, 0, 0.963039, 0, 0, 0, 0.963039, 0, 0.8, -0.5)
+mass = 3.0
+angular_damp_mode = 1
+angular_damp = 50.0
 ranged_grab_method = 0
 second_hand_grab = 1
 
@@ -428,6 +485,7 @@ script = ExtResource("15_6jn5i")
 
 [node name="CubeMetalRB" parent="CubeExperiment" instance=ExtResource("6_7w3lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.8, -0.5)
+mass = 6.0
 ranged_grab_method = 0
 second_hand_grab = 1
 
@@ -445,10 +503,11 @@ transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
 [node name="BallCupExperiment" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946, 0.72, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946, 0.72, 0.678377)
 
 [node name="Ball1" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172814, 0.0307263, 0.668411)
+mass = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball1"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -462,7 +521,8 @@ transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
 [node name="Ball2" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, -0.0607974)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172814, 0.0307263, 0.607614)
+mass = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball2"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -476,7 +536,8 @@ transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
 [node name="Ball3" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, -0.126399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172814, 0.0307263, 0.542012)
+mass = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball3"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -490,7 +551,8 @@ transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
 [node name="Ball4" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0848095, 0.0307263, -0.0343514)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0880049, 0.0307263, 0.63406)
+mass = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball4"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -504,7 +566,8 @@ transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
 [node name="Ball5" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827112, 0.0307263, -0.0985399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0901033, 0.0307263, 0.569871)
+mass = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball5"]
 mesh = SubResource("SphereMesh_rs2at")
@@ -514,6 +577,81 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_taf7b")
 
 [node name="Tracker" type="Node3D" parent="BallCupExperiment/Ball5"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
+[node name="Ball6" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, 0.674509)
+mass = 0.05
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball6"]
+mesh = SubResource("SphereMesh_rs2at")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BallCupExperiment/Ball6"]
+shape = SubResource("ConvexPolygonShape3D_taf7b")
+
+[node name="Tracker" type="Node3D" parent="BallCupExperiment/Ball6"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
+[node name="Ball7" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, 0.613712)
+mass = 0.05
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball7"]
+mesh = SubResource("SphereMesh_rs2at")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BallCupExperiment/Ball7"]
+shape = SubResource("ConvexPolygonShape3D_taf7b")
+
+[node name="Tracker" type="Node3D" parent="BallCupExperiment/Ball7"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
+[node name="Ball8" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0307263, 0.54811)
+mass = 0.05
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball8"]
+mesh = SubResource("SphereMesh_rs2at")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BallCupExperiment/Ball8"]
+shape = SubResource("ConvexPolygonShape3D_taf7b")
+
+[node name="Tracker" type="Node3D" parent="BallCupExperiment/Ball8"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
+[node name="Ball9" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0848095, 0.0307263, 0.640158)
+mass = 0.05
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball9"]
+mesh = SubResource("SphereMesh_rs2at")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BallCupExperiment/Ball9"]
+shape = SubResource("ConvexPolygonShape3D_taf7b")
+
+[node name="Tracker" type="Node3D" parent="BallCupExperiment/Ball9"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
+[node name="Ball10" parent="BallCupExperiment" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827112, 0.0307263, 0.575969)
+mass = 0.05
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallCupExperiment/Ball10"]
+mesh = SubResource("SphereMesh_rs2at")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BallCupExperiment/Ball10"]
+shape = SubResource("ConvexPolygonShape3D_taf7b")
+
+[node name="Tracker" type="Node3D" parent="BallCupExperiment/Ball10"]
 transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
@@ -527,111 +665,113 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BallCupExperiment/Cup"]
 shape = SubResource("ConcavePolygonShape3D_xpupr")
 
-[node name="HammerNailExperiment" type="Node3D" parent="."]
+[node name="HammerNailExperimentHand" type="Node3D" parent="."]
 
-[node name="Hammer" parent="HammerNailExperiment" instance=ExtResource("6_7w3lv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.800367, 0.760752, 0.021661)
+[node name="Hammer" parent="HammerNailExperimentHand" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, -0.8, 0.773502, 0)
+collision_layer = 2147483652
+mass = 5.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(-0.1, 0, 0)
+continuous_cd = true
+ranged_grab_method = 0
+second_hand_grab = 1
+
+[node name="10293HammerV1Iterations-2" type="MeshInstance3D" parent="HammerNailExperimentHand/Hammer"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, -5.7572e-10, -0.0482789)
+material_override = SubResource("StandardMaterial3D_rws22")
+mesh = ExtResource("22_cxabp")
+skeleton = NodePath("../../../Level/Table")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="HammerNailExperimentHand/Hammer"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, -5.7572e-10, -0.0482789)
+shape = SubResource("ConvexPolygonShape3D_v5w7y")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="HammerNailExperimentHand/Hammer"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, -5.7572e-10, -0.0482789)
+shape = SubResource("ConvexPolygonShape3D_yrpnm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HammerNailExperimentHand/Hammer"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, -5.7572e-10, -0.0482789)
+shape = SubResource("ConvexPolygonShape3D_dltx4")
+
+[node name="Tracker" type="Node3D" parent="HammerNailExperimentHand/Hammer"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("15_6jn5i")
+
+[node name="Mallet" parent="HammerNailExperimentHand" instance=ExtResource("6_7w3lv")]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, -0.905966, 0.760752, 0.42314)
 collision_layer = 2147483652
 mass = 2.2
 continuous_cd = true
 ranged_grab_method = 0
 second_hand_grab = 1
 
-[node name="10293HammerV1Iterations-2" type="MeshInstance3D" parent="HammerNailExperiment/Hammer"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_rws22")
-mesh = ExtResource("22_cxabp")
-skeleton = NodePath("../../../Level/Table")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="HammerNailExperiment/Hammer"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_v5w7y")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="HammerNailExperiment/Hammer"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_yrpnm")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HammerNailExperiment/Hammer"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_dltx4")
-
-[node name="Tracker" type="Node3D" parent="HammerNailExperiment/Hammer"]
+[node name="Tracker" type="Node3D" parent="HammerNailExperimentHand/Mallet"]
 transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
 script = ExtResource("15_6jn5i")
 
-[node name="Mallet" parent="HammerNailExperiment" instance=ExtResource("6_7w3lv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905966, 0.760752, 0.324396)
-collision_layer = 2147483652
-mass = 0.7
-continuous_cd = true
-ranged_grab_method = 0
-second_hand_grab = 1
-
-[node name="Tracker" type="Node3D" parent="HammerNailExperiment/Mallet"]
-transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
-script = ExtResource("15_6jn5i")
-
-[node name="13060RubberMalletV1L3" type="MeshInstance3D" parent="HammerNailExperiment/Mallet"]
+[node name="13060RubberMalletV1L3" type="MeshInstance3D" parent="HammerNailExperimentHand/Mallet"]
 transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_fwned")
 mesh = ExtResource("27_4by3w")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="HammerNailExperiment/Mallet"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="HammerNailExperimentHand/Mallet"]
 transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_dmrww")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HammerNailExperiment/Mallet"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HammerNailExperimentHand/Mallet"]
 transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_flefk")
 
-[node name="Nail" type="StaticBody3D" parent="HammerNailExperiment"]
+[node name="Nail" type="StaticBody3D" parent="HammerNailExperimentHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75045, 0.71919, 0.199416)
 collision_mask = 0
 
-[node name="20241Nail(fastener)V1" type="MeshInstance3D" parent="HammerNailExperiment/Nail"]
+[node name="20241Nail(fastener)V1" type="MeshInstance3D" parent="HammerNailExperimentHand/Nail"]
 transform = Transform3D(-0.01, 8.74228e-10, 0, -8.74228e-10, -0.01, 0, 0, 0, 0.01, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4vn6q")
 mesh = ExtResource("25_tu6t3")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperiment/Nail"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperimentHand/Nail"]
 transform = Transform3D(-0.01, 8.74228e-10, 0, -8.74228e-10, -0.01, 0, 0, 0, 0.01, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_sknhp")
 
-[node name="Area3D" type="Area3D" parent="HammerNailExperiment/Nail"]
+[node name="Area3D" type="Area3D" parent="HammerNailExperimentHand/Nail"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0573639, 0.00496174)
 collision_layer = 2147483649
 collision_mask = 2147483648
 script = ExtResource("25_ykpiy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperiment/Nail/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperimentHand/Nail/Area3D"]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
 shape = SubResource("CylinderShape3D_00rl8")
 
-[node name="Nail2" type="StaticBody3D" parent="HammerNailExperiment"]
+[node name="Nail2" type="StaticBody3D" parent="HammerNailExperimentHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75045, 0.71919, 0.511947)
 collision_mask = 0
 
-[node name="20241Nail(fastener)V1" type="MeshInstance3D" parent="HammerNailExperiment/Nail2"]
+[node name="20241Nail(fastener)V1" type="MeshInstance3D" parent="HammerNailExperimentHand/Nail2"]
 transform = Transform3D(-0.01, 8.74228e-10, 0, -8.74228e-10, -0.01, 0, 0, 0, 0.01, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4vn6q")
 mesh = SubResource("ArrayMesh_ifd0o")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperiment/Nail2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperimentHand/Nail2"]
 transform = Transform3D(-0.01, 8.74228e-10, 0, -8.74228e-10, -0.01, 0, 0, 0, 0.01, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_xwvep")
 
-[node name="Area3D" type="Area3D" parent="HammerNailExperiment/Nail2"]
+[node name="Area3D" type="Area3D" parent="HammerNailExperimentHand/Nail2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0573639, 0.00496174)
 collision_layer = 2147483649
 collision_mask = 2147483648
 script = ExtResource("25_ykpiy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperiment/Nail2/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperimentHand/Nail2/Area3D"]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
 shape = SubResource("CylinderShape3D_ta4xl")
 
-[connection signal="body_entered" from="HammerNailExperiment/Nail/Area3D" to="HammerNailExperiment/Nail/Area3D" method="_on_body_entered"]
-[connection signal="body_entered" from="HammerNailExperiment/Nail2/Area3D" to="HammerNailExperiment/Nail2/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="HammerNailExperimentHand/Nail/Area3D" to="HammerNailExperimentHand/Nail/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="HammerNailExperimentHand/Nail2/Area3D" to="HammerNailExperimentHand/Nail2/Area3D" method="_on_body_entered"]

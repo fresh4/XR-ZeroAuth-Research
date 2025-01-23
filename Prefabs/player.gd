@@ -2,6 +2,8 @@ class_name Player extends XROrigin3D
 
 @onready var lh: OpenXRFbHandTrackingMesh = %LeftHandMesh; ## Left hand skeleton
 @onready var rh: OpenXRFbHandTrackingMesh = %RightHandMesh; ## Right hand skeleton
+@onready var left_hand_xr_node: XRNode3D = %LeftHandXRNode
+@onready var right_hand_xr_node: XRNode3D = %RightHandXRNode
 
 func get_left_fingertip_transform(hand: OpenXRFbHandTrackingMesh = lh) -> Array[Vector3]:
 	var lh_tips: Array[Vector3] = [

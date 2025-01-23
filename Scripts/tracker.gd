@@ -5,6 +5,8 @@ class_name Tracker extends Node3D
 # Default CSV column headers. Linear+angular velocity and position.
 const headers: String = "lv_x, lv_y, lv_z, av_x, av_y, av_z, pos_x, pos_y, pos_z," + \
 						"imu_pos_x, imu_pos_y, imu_pos_z, imu_rot_x, imu_rot_y, imu_rot_z," + \
+						"lh_pos_x, lh_pos_y, lh_pos_z, lh_rot_x, lh_rot_y, lh_rot_z," + \
+						"rh_pos_x, rh_pos_y, rh_pos_z, rh_rot_x, rh_rot_y, rh_rot_z," + \
 						"lh_thumb_x, lh_thumb_y, lh_thumb_z," + \
 						"lh_index_x, lh_index_y, lh_index_z," + \
 						"lh_middle_x, lh_middle_y, lh_middle_z," + \
@@ -22,12 +24,17 @@ var picked_up: bool = false;
 
 var player: Player = null;
 var headset: XRCamera3D = null;
+var left_hand: XRNode3D = null;
+var right_hand: XRNode3D = null;
+
 func _ready() -> void:
 	Globals.recording_toggled.connect(_on_recording_toggle);
 	rb.released.connect(_on_release);
 	rb.picked_up.connect(_on_pickup);
 	player = get_tree().get_first_node_in_group("Player");
 	headset = player.get_node("%Headset");
+	left_hand = player.left_hand_xr_node;
+	right_hand = player.right_hand_xr_node;
 
 func _physics_process(_delta: float) -> void:
 	if not Globals.is_recording: return
@@ -52,6 +59,10 @@ func record_metrics():
 			 + str(rb.position.x) + ", " + str(rb.position.y) + ", " + str(rb.position.z) + ", "\
 		 	 + str(headset.position.x) + ", " + str(headset.position.y) + ", " + str(headset.position.z) + ", "\
 			 + str(headset.rotation.x) + ", " + str(headset.rotation.y) + ", " + str(headset.rotation.z) + ", "\
+		 	 + str(left_hand.position.x) + ", " + str(left_hand.position.y) + ", " + str(left_hand.position.z) + ", "\
+			 + str(left_hand.rotation.x) + ", " + str(left_hand.rotation.y) + ", " + str(left_hand.rotation.z) + ", "\
+		 	 + str(right_hand.position.x) + ", " + str(right_hand.position.y) + ", " + str(right_hand.position.z) + ", "\
+			 + str(right_hand.rotation.x) + ", " + str(right_hand.rotation.y) + ", " + str(right_hand.rotation.z) + ", "\
 			 + str(lh[0].x) + ", " + str(lh[0].y) + ", " + str(lh[0].z) + ", "\
 			 + str(lh[1].x) + ", " + str(lh[1].y) + ", " + str(lh[1].z) + ", "\
 			 + str(lh[2].x) + ", " + str(lh[2].y) + ", " + str(lh[2].z) + ", "\
@@ -85,7 +96,8 @@ func _on_recording_toggle():
 
 func _on_release(_what, _by) -> void:
 	picked_up = false;
-	save_data();
+	if Globals.is_recording:
+		save_data();
 
 func _on_pickup(_what) -> void:
 	picked_up = true;

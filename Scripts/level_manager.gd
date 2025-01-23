@@ -4,7 +4,7 @@ extends Node3D
 @onready var headset: XRCamera3D = player.get_node("%Headset"); ## Get XR Camera from Player children.
 
 # Default CSV column headers. Rotation and Position for the headset.
-const headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z";
+const headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z\n";
 var data: String = headers;
 
 func _ready() -> void:
