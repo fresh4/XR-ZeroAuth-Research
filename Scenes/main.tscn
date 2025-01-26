@@ -431,8 +431,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170164, 0.0603314, 0.73532)
 
 [node name="Nail" type="StaticBody3D" parent="HammerNailExperimentHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.719, 0.199)
-collision_layer = 65541
-collision_mask = 65540
+collision_mask = 2
 
 [node name="20241Nail(fastener)V1" type="MeshInstance3D" parent="HammerNailExperimentHand/Nail"]
 transform = Transform3D(-0.01, 8.74228e-10, 0, -8.74228e-10, -0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -446,8 +445,8 @@ shape = SubResource("ConvexPolygonShape3D_sknhp")
 
 [node name="Area3D" type="Area3D" parent="HammerNailExperimentHand/Nail"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0573639, 0.00496174)
-collision_layer = 2147483649
-collision_mask = 2147483648
+collision_layer = 0
+collision_mask = 65536
 script = ExtResource("25_ykpiy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperimentHand/Nail/Area3D"]
@@ -456,8 +455,7 @@ shape = SubResource("CylinderShape3D_00rl8")
 
 [node name="Nail2" type="StaticBody3D" parent="HammerNailExperimentHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75045, 0.71919, 0.511947)
-collision_layer = 65537
-collision_mask = 65536
+collision_mask = 0
 
 [node name="20241Nail(fastener)V1" type="MeshInstance3D" parent="HammerNailExperimentHand/Nail2"]
 transform = Transform3D(-0.01, 8.74228e-10, 0, -8.74228e-10, -0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -471,8 +469,8 @@ shape = SubResource("ConvexPolygonShape3D_xwvep")
 
 [node name="Area3D" type="Area3D" parent="HammerNailExperimentHand/Nail2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0573639, 0.00496174)
-collision_layer = 2147483649
-collision_mask = 2147483648
+collision_layer = 0
+collision_mask = 65536
 script = ExtResource("25_ykpiy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HammerNailExperimentHand/Nail2/Area3D"]

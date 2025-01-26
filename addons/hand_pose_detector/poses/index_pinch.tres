@@ -5,11 +5,11 @@
 
 [sub_resource type="Resource" id="Resource_70eme"]
 script = ExtResource("1_vq5lv")
-type = 0
+type = 1
 min = 0.0
-from = 25.0
-to = 0.0
-max = 0.0
+from = 0.0
+to = 30.0
+max = 30.0
 
 [resource]
 script = ExtResource("2_kocur")
