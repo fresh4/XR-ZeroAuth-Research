@@ -47,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 # Every (physics) frame we append the current positional states as a row in the csv.
 # Only if the physics object is not stationary to reduce unnecessary row entries.
 func record_metrics():
-	if picked_up:
+	if picked_up and (rb.linear_velocity.length() or rb.angular_velocity.length()):
 		saved = false; # If the object begins to move, reset saved state to be able to record current journey.
 		print(rb.name + " " + str(rb.linear_velocity.length()) + " " + str(rb.angular_velocity.length()));
 		# Left hand/Right hand; idx 0 -> 4, thumb -> little finger
@@ -80,10 +80,10 @@ func save_data():
 	var filename: String = str(rb.name) + "_" + str(idx) + ".csv";
 	var csv = FileAccess.open("user://" + filename, FileAccess.WRITE);
 	csv.store_string(data);
-	#print("saving ", filename);
 	print("Saving " + filename + " in user directory. File size: " + str(csv.get_length()/1000.0) + "kb");
 	saved = true; # Set saved state when saved to avoid repeated execution of this function.
 	idx += 1 # Append index such that next file isn't overwritten.
+	data = headers; # Clear old data.
 
 func is_moving() -> bool:
 	var v_floor: float = .001; ## Minimum value for velocity to determine item is in motion.
@@ -95,6 +95,8 @@ func _on_recording_toggle():
 	print("Recording " + str(rb.name) + " metrics: " + str(Globals.is_recording));
 
 func _on_release(_what, _by) -> void:
+	await get_tree().create_timer(0.1).timeout;
+	if rb.is_picked_up(): return;
 	picked_up = false;
 	if Globals.is_recording:
 		save_data();

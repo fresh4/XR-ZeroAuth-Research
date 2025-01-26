@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbxbaynmmrb26"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_mg0ce"]
+[ext_resource type="PackedScene" uid="uid://dnmdx15up5qbq" path="res://Functions/tracker.tscn" id="2_fvqr3"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="3_w6kak"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qe330"]
+points = PackedVector3Array(-0.00475818, -0.0253968, -0.00158606, 0.00476315, 0.0253968, 0.00158606, 0.00476315, 0.0253968, -0.00158606, -0.0253968, 0.00475818, 0.000790543, 0.00396763, -0.00317212, 0.0253968, 0.0174566, -0.00396763, -0.0190476, -0.0103168, 0.0023766, -0.0238058, 0.0246013, -0.00475818, 0.00713975, -0.0158705, 0.00158606, 0.0206337, 0.016666, 0.0158705, -0.0126984, 0.0126934, 0.0158705, 0.016666, -0.0142845, 0.0214242, 0.00396763, 0.015075, -0.0206337, 0.00555369, -0.0126984, -0.0174566, 0.015075, -0.015075, -0.0174566, -0.0126984, 0.00713975, -0.0174566, -0.0182521, -0.0103168, 0.0182521, -0.0158705, -0.00396763, 0.0174566, 0.0190476, 0.00555369, 0.00634921, -0.0246013, 0.0230152, 0.0118979, -0.0023766, 0.00713975, -0.0182521, 0.0174566, -0.0230103, -0.0111074, 0.00555369, -0.0222197, -0.0023766, -0.013489, 0.0222197, -0.0119029, -0.00713975, 0.0174566, -0.00396763, 0.0190476, -0.00317212, -0.00793526, -0.0246013, -0.0206287, 0.0119029, -0.0111074, 0.00396763, 0.0198382, -0.016666, -0.0198382, 0.00952132, 0.0142845, 0.0111074, -0.0230152, -0.00555369, 0.0206337, 0.0118979, 0.0111074, 0.0246013, 0.00317212, -0.00793029)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4ymt5"]
+radius = 0.025
+height = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgfe1"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.177429, 0.756901, 0.890625, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dpp7f"]
+material = SubResource("StandardMaterial3D_mgfe1")
+radius = 0.027
+height = 0.053
+
+[node name="Ball" instance=ExtResource("1_mg0ce")]
+can_sleep = false
+ranged_grab_method = 0
+second_hand_grab = 1
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("ConvexPolygonShape3D_qe330")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("SphereMesh_4ymt5")
+
+[node name="Tracker" parent="." index="2" instance=ExtResource("2_fvqr3")]
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="3"]
+script = ExtResource("3_w6kak")
+
+[node name="HighlightMesh" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+mesh = SubResource("SphereMesh_dpp7f")
+skeleton = NodePath("../..")

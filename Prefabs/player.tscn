@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3rc247u6y0xf"]
+[gd_scene load_steps=11 format=3 uid="uid://d3rc247u6y0xf"]
 
-[ext_resource type="Script" path="res://Prefabs/player.gd" id="1_u1ksl"]
-[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_03qaj"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_u1ksl"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_5blie"]
+[ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="4_sowgi"]
+[ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="5_rex2v"]
+[ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="6_j0i6y"]
+[ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="6_lql6c"]
+[ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="7_g7ufi"]
+
+[sub_resource type="Resource" id="Resource_i1xvo"]
+script = ExtResource("5_rex2v")
+pose = ExtResource("6_j0i6y")
+action_type = 1
+action_name = "grip"
+
+[sub_resource type="Resource" id="Resource_2v7td"]
+script = ExtResource("5_rex2v")
+pose = ExtResource("6_lql6c")
+action_type = 1
+action_name = "grip"
+
+[sub_resource type="Resource" id="Resource_ik7p7"]
+script = ExtResource("7_g7ufi")
+actions = Array[ExtResource("5_rex2v")]([SubResource("Resource_i1xvo"), SubResource("Resource_2v7td")])
 
 [node name="Player" type="XROrigin3D" groups=["Player"]]
 script = ExtResource("1_u1ksl")
@@ -9,35 +30,24 @@ script = ExtResource("1_u1ksl")
 [node name="Headset" type="XRCamera3D" parent="."]
 unique_name_in_owner = true
 
-[node name="LeftHandController" type="XRController3D" parent="."]
-visible = false
-tracker = &"left_hand"
-show_when_tracked = true
-
-[node name="FunctionPickup" parent="LeftHandController" instance=ExtResource("2_03qaj")]
-grab_distance = 0.1
-ranged_enable = false
-
-[node name="RightHandController" type="XRController3D" parent="."]
-tracker = &"right_hand"
-show_when_tracked = true
-
-[node name="FunctionPickup" parent="RightHandController" instance=ExtResource("2_03qaj")]
-grab_distance = 0.1
-ranged_enable = false
-
 [node name="LeftHandXRNode" type="XRNode3D" parent="."]
 unique_name_in_owner = true
 tracker = &"/user/hand_tracker/left"
+show_when_tracked = true
 
 [node name="LeftHandMesh" type="OpenXRFbHandTrackingMesh" parent="LeftHandXRNode"]
 unique_name_in_owner = true
 
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandXRNode/LeftHandMesh"]
 
+[node name="HandPoseController" parent="LeftHandXRNode" instance=ExtResource("4_sowgi")]
+controller_pose_type = 0
+controller_action_map = SubResource("Resource_ik7p7")
+
 [node name="RightHandXRNode" type="XRNode3D" parent="."]
 unique_name_in_owner = true
 tracker = &"/user/hand_tracker/right"
+show_when_tracked = true
 
 [node name="RightHandMesh" type="OpenXRFbHandTrackingMesh" parent="RightHandXRNode"]
 hand = 1
@@ -71,3 +81,45 @@ bones/25/name = "RightLittleTip"
 
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="RightHandXRNode/RightHandMesh"]
 hand_tracker = &"/user/hand_tracker/right"
+
+[node name="HandPoseController" parent="RightHandXRNode" instance=ExtResource("4_sowgi")]
+controller_tracker_name = "/user/hand_pose_controller/right"
+controller_pose_type = 0
+controller_action_map = SubResource("Resource_ik7p7")
+hand_tracker_name = "/user/hand_tracker/right"
+
+[node name="LeftHandTracker" type="XRController3D" parent="."]
+tracker = &"/user/hand_pose_controller/left"
+show_when_tracked = true
+
+[node name="FunctionPickup" parent="LeftHandTracker" instance=ExtResource("2_5blie")]
+grab_distance = 0.05
+ranged_enable = false
+ranged_distance = 0.0
+
+[node name="RightHandTracker" type="XRController3D" parent="."]
+tracker = &"/user/hand_pose_controller/right"
+show_when_tracked = true
+
+[node name="FunctionPickup" parent="RightHandTracker" instance=ExtResource("2_5blie")]
+grab_distance = 0.05
+ranged_enable = false
+ranged_distance = 0.0
+
+[node name="LeftControllerTracker" type="XRController3D" parent="."]
+tracker = &"left_hand"
+show_when_tracked = true
+
+[node name="FunctionPickup" parent="LeftControllerTracker" instance=ExtResource("2_5blie")]
+grab_distance = 0.075
+ranged_enable = false
+ranged_distance = 0.0
+
+[node name="RightControllerTracker" type="XRController3D" parent="."]
+tracker = &"right_hand"
+show_when_tracked = true
+
+[node name="FunctionPickup" parent="RightControllerTracker" instance=ExtResource("2_5blie")]
+grab_distance = 0.075
+ranged_enable = false
+ranged_distance = 0.0

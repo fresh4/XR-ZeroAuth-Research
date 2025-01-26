@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnmdx15up5qbq"]
+
+[ext_resource type="Script" path="res://Scripts/tracker.gd" id="1_3xtkf"]
+
+[node name="Tracker" type="Node3D"]
+transform = Transform3D(1.03838, 0, 0, 0, 1.03838, 0, 0, 0, 1.03838, 0, 0, 0)
+script = ExtResource("1_3xtkf")

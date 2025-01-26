@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0qb8xog1ehpi"
-path.s3tc="res://.godot/imported/Low-Poly_Plastic cup_color.png-6a579e796f5da6a53acc1b2f3a13d671.s3tc.ctex"
-path.etc2="res://.godot/imported/Low-Poly_Plastic cup_color.png-6a579e796f5da6a53acc1b2f3a13d671.etc2.ctex"
+uid="uid://jmog4gftnc6"
+path.s3tc="res://.godot/imported/hand.png-0e74e8ea85846bad12cb504adc8e5d90.s3tc.ctex"
+path.etc2="res://.godot/imported/hand.png-0e74e8ea85846bad12cb504adc8e5d90.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Cup2/Low-Poly_Plastic cup_color.png"
-dest_files=["res://.godot/imported/Low-Poly_Plastic cup_color.png-6a579e796f5da6a53acc1b2f3a13d671.s3tc.ctex", "res://.godot/imported/Low-Poly_Plastic cup_color.png-6a579e796f5da6a53acc1b2f3a13d671.etc2.ctex"]
+source_file="res://addons/hand_pose_detector/hands/hand.png"
+dest_files=["res://.godot/imported/hand.png-0e74e8ea85846bad12cb504adc8e5d90.s3tc.ctex", "res://.godot/imported/hand.png-0e74e8ea85846bad12cb504adc8e5d90.etc2.ctex"]
 
 [params]
 

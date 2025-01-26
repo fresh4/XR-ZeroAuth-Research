@@ -12,11 +12,14 @@ func _ready() -> void:
 	initial_pos = nail.position;
 
 func _on_body_entered(body: RigidBody3D) -> void:
+	if body is not XRToolsPickable: return;
 	# Calculate force, taking into account the object's mass.
-	var force: float = abs(body.mass * body.linear_velocity.y);
-	if not force > 0.5: return; # Ignore weak impacts/taps.
+	#var force: float = abs(body.mass * body.linear_velocity.y);
+	var force: float = abs(body.mass * 0.5);
+	#if not force > 0.5: return; # Ignore weak impacts/taps.
 	if nail.position.y <= initial_pos.y - MAX_DIST: return; # Do not move if nail is already fully set.
 	
 	# Move nail on impact, to a maximum distance where the head is touching the table.
-	var distance_to_move: float = clampf(force * coefficient, 0, initial_pos.y - MAX_DIST);
+	var distance_to_move: float = force * coefficient;
 	nail.position.y -= distance_to_move;
+	nail.position.y = clampf(nail.position.y, initial_pos.y, initial_pos.y - MAX_DIST)
