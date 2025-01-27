@@ -1,13 +1,18 @@
-[gd_scene load_steps=10 format=4 uid="uid://dm1oo7h43bq68"]
+[gd_scene load_steps=13 format=4 uid="uid://dm1oo7h43bq68"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_tohm6"]
 [ext_resource type="Texture2D" uid="uid://rhs72x42qktk" path="res://Assets/Mallet/Rubber_Mallet_diffuse.jpg" id="2_t3wgf"]
 [ext_resource type="ArrayMesh" uid="uid://bn28cqkmsesgv" path="res://Assets/Mallet/13060_Rubber_Mallet_v1_l3.obj" id="3_geeov"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="4_euyy6"]
 [ext_resource type="PackedScene" uid="uid://dnmdx15up5qbq" path="res://Functions/tracker.tscn" id="5_3vqkq"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_0lukm"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_5l4hi"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jp6b0"]
-points = PackedVector3Array(4.31629, 0.857391, 15.8993, -3.4889, -1.53815, 0.23116, -3.42988, 1.99002, 0.255911, 34.4917, -0.988243, 6.04808, -1.22802, -4.68494, 14.6673, 1.2374, 4.55318, 15.8993, 1.2374, 4.55318, -0.111871, 33.8744, 1.47321, 9.73935, 0.620082, -4.68494, 0.504125, -4.23505, 0.825105, 13.2415, 33.8744, -1.60406, 8.50736, 1.85087, -4.06731, 15.8993, 33.8744, 0.857391, 5.43209, 3.69897, -2.83569, -0.111871, -2.76297, 3.15078, 14.9126, 34.4917, -0.988243, 9.73935, 34.4917, 1.47321, 6.04808, -3.44584, -2.12272, 14.95, 1.85087, -4.68494, 11.5873, -2.60949, 3.70245, 4.41605, -1.22802, -4.68494, 1.11855, 4.31629, 1.47321, -0.111871, -4.13106, -1.54215, 3.75755, 2.46819, 4.55318, 12.2033, -4.10369, 1.9993, 4.94423, 33.8744, -1.60406, 6.66408, 33.2571, -0.988243, 5.43209, 1.85087, -4.06731, -0.111871, 2.46819, 4.55318, 2.96811, 0.620082, -4.68494, 14.6673, -3.13924, 1.95722, 15.4096, 1.85087, -4.68494, 3.5841)
+[sub_resource type="BoxShape3D" id="BoxShape3D_t1p6a"]
+size = Vector3(9.11373, 9.13971, 16.0571)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqrnv"]
+size = Vector3(30.0858, 3.56152, 2.6875)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_retxg"]
 albedo_texture = ExtResource("2_t3wgf")
@@ -33,21 +38,35 @@ ranged_grab_method = 0
 second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_jp6b0")
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, -0.00271709, 0.0902463, -0.000767522)
+shape = SubResource("BoxShape3D_t1p6a")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.190071, 0.0948492, 0)
+shape = SubResource("BoxShape3D_qqrnv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, 0.0149607, 0)
 material_override = SubResource("StandardMaterial3D_retxg")
 mesh = ExtResource("3_geeov")
 
-[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="2"]
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="3"]
 script = ExtResource("4_euyy6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, 0.0149607, 0)
 mesh = SubResource("ArrayMesh_tir81")
 skeleton = NodePath("../../MeshInstance3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_egvcl")
 
-[node name="Tracker" parent="." index="3" instance=ExtResource("5_3vqkq")]
+[node name="Tracker" parent="." index="4" instance=ExtResource("5_3vqkq")]
+
+[node name="GrabPointHandRight" parent="." index="5" instance=ExtResource("6_0lukm")]
+transform = Transform3D(-8.3918e-11, -0.999998, 0.00191982, -4.37113e-08, 0.00191982, 0.999998, -1, 0, -4.37114e-08, 0.195133, 0.065, 0.012)
+visible = true
+drive_angle = 0.0
+
+[node name="GrabPointHandLeft" parent="." index="6" instance=ExtResource("7_5l4hi")]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0.195133, 0.065, -0.00664898)
+visible = true
+drive_angle = 0.0

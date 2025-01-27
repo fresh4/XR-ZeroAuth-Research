@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3rc247u6y0xf"]
+[gd_scene load_steps=12 format=3 uid="uid://d3rc247u6y0xf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_u1ksl"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_5blie"]
+[ext_resource type="Script" path="res://Scripts/debug.gd" id="2_dxd82"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="4_sowgi"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="5_rex2v"]
 [ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="6_j0i6y"]
@@ -96,6 +97,18 @@ show_when_tracked = true
 grab_distance = 0.05
 ranged_enable = false
 ranged_distance = 0.0
+
+[node name="Debug" type="Label3D" parent="LeftHandTracker"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 0.08)
+visible = false
+text = "Hand Tracking Debug Statistics"
+script = ExtResource("2_dxd82")
+pose = ExtResource("6_lql6c")
+
+[node name="PoseLabel" type="Label3D" parent="LeftHandTracker/Debug"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37, 0, 0)
+text = "Pose Data"
 
 [node name="RightHandTracker" type="XRController3D" parent="."]
 tracker = &"/user/hand_pose_controller/right"

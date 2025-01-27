@@ -478,10 +478,10 @@ transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
 shape = SubResource("CylinderShape3D_ta4xl")
 
 [node name="Hammer" parent="HammerNailExperimentHand" instance=ExtResource("12_aqrim")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.823022, 0.791379, 0.0285192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.823022, 0.791379, 0.0285192)
 
 [node name="Mallet" parent="HammerNailExperimentHand" instance=ExtResource("26_20hw1")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.98861, 0.776492, 0.401086)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98861, 0.776492, 0.401086)
 
 [connection signal="body_entered" from="HammerNailExperimentHand/Nail/Area3D" to="HammerNailExperimentHand/Nail/Area3D" method="_on_body_entered"]
 [connection signal="body_entered" from="HammerNailExperimentHand/Nail2/Area3D" to="HammerNailExperimentHand/Nail2/Area3D" method="_on_body_entered"]
