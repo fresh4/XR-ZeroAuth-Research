@@ -65,10 +65,10 @@ skeleton = NodePath("../../MeshInstance3D")
 
 [node name="GrabPointHandRight" parent="." index="5" instance=ExtResource("6_bwwj5")]
 transform = Transform3D(5.11846e-09, -0.809683, 0.586867, -3.53924e-08, 0.586867, 0.809683, -1, -2.4915e-08, -2.56528e-08, 0.0546613, 0.0543287, 0.0172407)
-visible = true
 drive_angle = 0.0
+enabled = false
 
 [node name="GrabPointHandLeft" parent="." index="6" instance=ExtResource("7_xo1ep")]
 transform = Transform3D(5.11846e-09, -0.809683, 0.586867, -3.53924e-08, 0.586867, 0.809683, -1, -2.4915e-08, -2.56528e-08, 0.0546613, 0.0543287, -0.0183572)
-visible = true
 drive_angle = 0.0
+enabled = false

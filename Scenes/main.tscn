@@ -338,6 +338,7 @@ shape = SubResource("ConcavePolygonShape3D_jpqd5")
 
 [node name="Platform3" type="StaticBody3D" parent="Level/TableR"]
 transform = Transform3D(-4.20957e-08, 0, -0.963039, 0, 0.963039, 0, 0.963039, 0, -4.20957e-08, 0.25, 0.5, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/TableR/Platform3"]
 material_override = SubResource("StandardMaterial3D_0jcag")

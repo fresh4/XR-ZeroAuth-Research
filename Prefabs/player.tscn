@@ -38,6 +38,7 @@ show_when_tracked = true
 
 [node name="LeftHandMesh" type="OpenXRFbHandTrackingMesh" parent="LeftHandXRNode"]
 unique_name_in_owner = true
+modifier_callback_mode_process = 0
 
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="LeftHandXRNode/LeftHandMesh"]
 
@@ -53,6 +54,7 @@ show_when_tracked = true
 [node name="RightHandMesh" type="OpenXRFbHandTrackingMesh" parent="RightHandXRNode"]
 hand = 1
 unique_name_in_owner = true
+modifier_callback_mode_process = 0
 bones/0/name = "RightPalm"
 bones/1/name = "RightHand"
 bones/2/name = "RightThumbMetacarpal"
