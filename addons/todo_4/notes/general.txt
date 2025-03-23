@@ -2,4 +2,3 @@
 - Change finger tracking to use the hand_pose_detector's finger flex, curl.
 - Fix multiple files being saved for one apparent pickup journey.
 - Fine tune hand tracking AGAIN so it feels good to pick things up.
-- Check if OpenXR Tools is updated with new shit.

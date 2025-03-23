@@ -100,6 +100,9 @@ func _on_release(_what, _by) -> void:
 	picked_up = false;
 	if Globals.is_recording:
 		save_data();
+	Globals.send_socket_data("DROP " + rb.name)
 
 func _on_pickup(_what) -> void:
+	if picked_up: return
+	Globals.send_socket_data("PICKUP " + rb.name)
 	picked_up = true;
