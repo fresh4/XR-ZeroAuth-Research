@@ -3,7 +3,7 @@ class_name Tracker extends Node3D
 @onready var rb: XRToolsPickable = self.get_parent(); # The physics object that has the desired metrics.
 
 # Default CSV column headers. Linear+angular velocity and position.
-const headers: String = "lv_x, lv_y, lv_z, av_x, av_y, av_z, pos_x, pos_y, pos_z," + \
+const headers: String = "lv_x, lv_y, lv_z, av_x, av_y, av_z, pos_x, pos_y, pos_z, rot_x, rot_y, rot_z" + \
 						"imu_pos_x, imu_pos_y, imu_pos_z, imu_rot_x, imu_rot_y, imu_rot_z," + \
 						"lh_pos_x, lh_pos_y, lh_pos_z, lh_rot_x, lh_rot_y, lh_rot_z," + \
 						"rh_pos_x, rh_pos_y, rh_pos_z, rh_rot_x, rh_rot_y, rh_rot_z," + \
@@ -56,12 +56,13 @@ func record_metrics():
 
 		data += str(rb.linear_velocity.x) + ", " + str(rb.linear_velocity.y) + ", " + str(rb.linear_velocity.z) + ", "\
 			 + str(rb.angular_velocity.x) + ", " + str(rb.angular_velocity.y) + ", " + str(rb.angular_velocity.z) + ", "\
-			 + str(rb.position.x) + ", " + str(rb.position.y) + ", " + str(rb.position.z) + ", "\
-		 	 + str(headset.position.x) + ", " + str(headset.position.y) + ", " + str(headset.position.z) + ", "\
+			 + str(rb.global_position.x) + ", " + str(rb.global_position.y) + ", " + str(rb.global_position.z) + ", "\
+			 + str(rb.rotation.x) + ", " + str(rb.rotation.y) + ", " + str(rb.rotation.z) + ", "\
+		 	 + str(headset.global_position.x) + ", " + str(headset.global_position.y) + ", " + str(headset.global_position.z) + ", "\
 			 + str(headset.rotation.x) + ", " + str(headset.rotation.y) + ", " + str(headset.rotation.z) + ", "\
-		 	 + str(left_hand.position.x) + ", " + str(left_hand.position.y) + ", " + str(left_hand.position.z) + ", "\
+		 	 + str(left_hand.global_position.x) + ", " + str(left_hand.global_position.y) + ", " + str(left_hand.global_position.z) + ", "\
 			 + str(left_hand.rotation.x) + ", " + str(left_hand.rotation.y) + ", " + str(left_hand.rotation.z) + ", "\
-		 	 + str(right_hand.position.x) + ", " + str(right_hand.position.y) + ", " + str(right_hand.position.z) + ", "\
+		 	 + str(right_hand.global_position.x) + ", " + str(right_hand.global_position.y) + ", " + str(right_hand.global_position.z) + ", "\
 			 + str(right_hand.rotation.x) + ", " + str(right_hand.rotation.y) + ", " + str(right_hand.rotation.z) + ", "\
 			 + str(lh[0].x) + ", " + str(lh[0].y) + ", " + str(lh[0].z) + ", "\
 			 + str(lh[1].x) + ", " + str(lh[1].y) + ", " + str(lh[1].z) + ", "\
