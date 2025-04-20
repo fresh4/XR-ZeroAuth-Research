@@ -1,4 +1,5 @@
-- Change recorded object positional data to be global position.
++ Change recorded object positional data to be global position?
++ Record object rotation
 - Change finger tracking to use the hand_pose_detector's finger flex, curl.
-- Fix multiple files being saved for one apparent pickup journey.
-- Fine tune hand tracking AGAIN so it feels good to pick things up.
+~ Fix multiple files being saved for one apparent pickup journey.
+- Fine tune hand tracking AGAIN so it feels good to pick things up, and make use of new updates to xrtools.

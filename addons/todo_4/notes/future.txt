@@ -1,0 +1,5 @@
+Figure out 7 experiments, that can be done 10 times each, in the context of physical therapy.
+
+Build level to facilitate these experiments.
+
+MAKE SURE THAT HAND INTERACTION FEELS NATURAL!!!
