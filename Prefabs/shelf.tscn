@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://go0ei16ltt1e"]
+
+[ext_resource type="Texture2D" uid="uid://dt3d3hsb5fp3h" path="res://Textures/Dark/texture_02.png" id="1_35upb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0t4w"]
+albedo_texture = ExtResource("1_35upb")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_hk2ok"]
+size = Vector3(1, 0.05, 0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q4tcm"]
+data = PackedVector3Array(-0.5, 0.025, 0.25, 0.5, 0.025, 0.25, -0.5, -0.025, 0.25, 0.5, 0.025, 0.25, 0.5, -0.025, 0.25, -0.5, -0.025, 0.25, 0.5, 0.025, -0.25, -0.5, 0.025, -0.25, 0.5, -0.025, -0.25, -0.5, 0.025, -0.25, -0.5, -0.025, -0.25, 0.5, -0.025, -0.25, 0.5, 0.025, 0.25, 0.5, 0.025, -0.25, 0.5, -0.025, 0.25, 0.5, 0.025, -0.25, 0.5, -0.025, -0.25, 0.5, -0.025, 0.25, -0.5, 0.025, -0.25, -0.5, 0.025, 0.25, -0.5, -0.025, -0.25, -0.5, 0.025, 0.25, -0.5, -0.025, 0.25, -0.5, -0.025, -0.25, 0.5, 0.025, 0.25, -0.5, 0.025, 0.25, 0.5, 0.025, -0.25, -0.5, 0.025, 0.25, -0.5, 0.025, -0.25, 0.5, 0.025, -0.25, -0.5, -0.025, 0.25, 0.5, -0.025, 0.25, -0.5, -0.025, -0.25, 0.5, -0.025, 0.25, 0.5, -0.025, -0.25, -0.5, -0.025, -0.25)
+
+[node name="Shelf" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_n0t4w")
+mesh = SubResource("BoxMesh_hk2ok")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_q4tcm")

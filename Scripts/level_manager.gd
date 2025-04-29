@@ -14,9 +14,15 @@ const calibration_headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z," 
 var calibration_data: String = calibration_headers;
 var is_calibrating_arm_length: bool = false;
 
+var teleport_points: Array[Node3D] = []
+var teleport_point_key_map: Array[int] = []
+
 func _ready() -> void:
 	Globals.recording_toggled.connect(_on_recording_toggled);
 	call_deferred("recenter_headset");
+	for i in get_tree().get_nodes_in_group("TeleportPoints"):
+		teleport_points.append(i)
+		teleport_point_key_map.append( len(teleport_point_key_map) + 49 )
 
 func _physics_process(_delta: float) -> void:
 	if Globals.is_recording:
@@ -38,6 +44,13 @@ func _input(event: InputEvent) -> void:
 		is_calibrating_arm_length = false;
 		save_data("arm_calibration_data.csv", calibration_data);
 		calibration_data = calibration_headers;
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.keycode in teleport_point_key_map:
+		var idx: int = teleport_point_key_map.find(event.keycode)
+		player.position = teleport_points[idx].global_position;
+		player.rotation.y = teleport_points[idx].global_rotation.y;
+		XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true);
 
 # Resets position and orientation to the center of the room.
 func recenter_headset():

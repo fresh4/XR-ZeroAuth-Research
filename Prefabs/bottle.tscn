@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=4 uid="uid://cac5xs50o0fmm"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_53pbc"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="2_jw25y"]
+[ext_resource type="PackedScene" uid="uid://c8fk8kdbunew5" path="res://Assets/3D/bottle-oil.glb" id="2_xcfw2"]
+[ext_resource type="PackedScene" uid="uid://dnmdx15up5qbq" path="res://Functions/tracker.tscn" id="3_57hd4"]
+[ext_resource type="Texture2D" uid="uid://dlcsifh5ipiqk" path="res://Assets/3D/Textures/colormap.png" id="4_52wj5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_txu6b"]
+points = PackedVector3Array(-0.035, 0.0149729, -0.035, -0.035, 0.0149729, 0.035, -0.035, 0.209985, -0.035, 0.035, 0.0149729, -0.035, -0.028703, 3.77876e-16, -0.028703, -0.028703, 3.77876e-16, 0.0286962, 0.035, 0.0149729, 0.035, -0.035, 0.209985, 0.035, 0.035, 0.209985, -0.035, -0.0133271, 0.3109, -0.0133271, 0.0286962, 3.77876e-16, -0.028703, 0.0286962, 3.77876e-16, 0.0286962, 0.035, 0.209985, 0.035, -0.0133271, 0.3109, 0.0133134, 0.0133134, 0.3109, -0.0133271, 0.0133134, 0.3109, 0.0133134)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3syx"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("4_52wj5")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a5ijg"]
+_surfaces = [{
+"aabb": AABB(-0.035, 3.77876e-16, -0.035, 0.07, 0.3109, 0.07),
+"format": 34896613377,
+"index_count": 288,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIAAQAAAAQABAAFAAEABQAEAAYABgAHAAUABwAGAAIAAgADAAcACQAIAAQABAAAAAkACQAKAAsACwAIAAkADgAMAA0ADQAPAA4ADQAKAAkACQAPAA0ABgAOAA8ADwACAAYABAAIAA4ADgAGAAQACQAAAAIAAgAPAAkAEgAQABEAEQATABIACgATABEAEQALAAoADAAQABIAEgANAAwAEwAKAA0ADQASABMADAALABEAEQAQAAwACAALABQAFAAOAAgAFQAUAAsAFAAWAA4ACwAMABUAFgAXAA4ADAAXABUADAAOABcAGgAYABkAGQAbABoAHgAcAB0AHQAfAB4AIgAgACEAIQAjACIAJgAkACUAJQAnACYAIwAhACYAJgAnACMAJAAcAB4AHgAlACQAGAAfAB0AHQAZABgAGgAbACAAIAAiABoAIAAbABkAGQAdACAAHQAhACAAHQAcACEAHAAmACEAHAAkACYAHwAYABoAGgAiAB8AIgAeAB8AIgAjAB4AIwAlAB4AIwAnACUAFQAXABYAFgAUABUAKgAoACkAKQArACoALgAsAC0ALQAvAC4AMQAwAC4ALgAvADEAMwAyACgAKAAqADMAMwAqAC0ALQA0ADMALAAuACkAKQAoACwANQAsACgAKAAyADUAKQA2ADcANwArACkAKgArAC8ALwAtACoAKwA3ADEAMQAvACsALgAwADYANgApAC4ALQAsADUANQA0AC0ANQAyADMAMwA0ADUA"),
+"lods": [0.0453577, PackedByteArray("AgAAAAEAAQADAAIACQAAAAIAAgAPAAkACQAPAA0ADQAKAAkAEwAKAA0ADQASABMAAQAAAAQABAAFAAEABAAAAAkACQAIAAQACwAIAAkACQAKAAsAEQALAAoACgATABEABQAEAAYABgAHAAUADgAGAAQABAAIAA4AFgAOAAgACAALABYADAAOABYACwAMABYADAALABEAEQAQAAwABwAGAAIAAgADAAcADwACAAYABgAOAA8ADQAPAA4ADgAMAA0AEgANAAwADAAQABIAEgAQABEAEQATABIAIgAeAB0AHgAmAB0AIgAdACYAHgAiACYAMQAwAC4ALgAtADEALQAuADUANQA0AC0AMwAyACkAKQArADMANwArACkAKQA2ADcAMwArAC0ALQA0ADMAMQAtACsAKwA3ADEANQAuACkAKQAyADUANgApAC4ALgAwADYANQAyADMAMwA0ADUA")],
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("/z9Euf8/AADgSp3F4EoAAP8/RLn/vwAA4EqdxR61AAD/v0S5/z8AAB61ncXgSgAA/79Euf+/AAAetZ3FHrUAAP//6qwAAAAAAADqrAAAAAAAAFkMAAAAAP//WQwAAAAA//9ZDP//AAAAAFkM//8AAP//6qz//wAAAADqrP//AAD06AAA9OgAAPToAAAKFwAAChcAAPToAAAKFwAAChcAAP//fKEoMAAA//+ZNCgwAAD//3yh1s8AAP//mTTWzwAAZ8f30eBKAABnx53F4EoAAGfH99EetQAAZ8edxR61AADgSp3FlzgAAB61ncWXOAAA4Er30Zc4AAAetffRlzgAAB61ncVnxwAA4EqdxWfHAAAetffRZ8cAAOBK99FnxwAAlzidxeBKAACXOPfR4EoAAJc4ncUetQAAlzj30R61AAC2sEruSE8AAEinNue2WAAAtrBK7rawAABIpzbnSKcAAEhPSu5ITwAASE9K7rawAAC2WDbntlgAALZYNudIpwAAUFL30VBSAABQUvfRrq0AALaw//9ITwAAtrD//7awAABIT///trAAAEhP//9ITwAArq330VBSAACurffRrq0AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fkmr7"]
+resource_name = "bottle-oil_bottle-oil"
+_surfaces = [{
+"aabb": AABB(-0.035, 3.77876e-16, -0.035, 0.07, 0.3109, 0.07),
+"attribute_data": PackedByteArray("/5eZif+XZYb/l5mJ/5dlhv+XmYn/l5mJ/5dlhv+XZYb/l5mJ/5eZif+XZYb/l2WG/5eZif+XmYn/l2WG/5dlhv+XzIz/l5mJ/5fMjP+XmYn/l2W2/5dltv+XzIz/l8yM/5dltv+XZbb/l8yM/5fMjP+XZbb/l8yM/5dltv+XzIz/l8yM/5fMjP+XmYn/l5mJ/5fMjP+XzIz/l5mJ/5eZif+XmYn/l5mJ/5fMjP+XzIz/l5i5/5eYuf+XmLn/l5i5/5eYuf+XmLn/l2W2/5dltv+XmLn/l5i5/5dltv+XZbb/l2W2/5dltv+XmLn/l5i5/5dltv+XmLn/l2W2/5eYuf+XZbb/l8KP/5fMjP+XzIz/l/ir/5fCj/+XZbb/l/ir/5cyk/+XzKz/lzKT/5fMrP+XzKz/l8ys/5cyk/+XMpP/l8ys/5fMrP+XMpP/lzKT/5fMrP+XMpP/l8ys/5cyk/+XzKz/l8ys/5cyk/+XMpP/l8ys/5cyk/+XzKz/lzKT/5cyk/+XzKz/lzKT/5fMrP+XzKz/l8ys/5cyk/+XMpP/l8ys/5fMrP+XzKz/l8ys/5fMrP+XzKz/l8ys/5fMrP+XMpP/lzKT/5cyk/+XMpP/lzKT/5cyk/+XMpP/lzKT/3fMrP93zKz/d8ys/3fMrP8XC53/F/ug/xcLnf8X+6D/Fwud/xcLnf8X+6D/F/ug/xfMrP8X+6D/F8ys/xf7oP8XMpP/Fwud/xcyk/8XC53/Fwud/xcLnf8XMpP/FzKT/xf7oP8X+6D/Fwud/xcLnf8XC53/Fwud/xcyk/8XMpP/F8ys/xfMrP8X+6D/F/ug/xf7oP8X+6D/Fwud/xcLnf8XzKz/F8ys/xf7oP8X+6D/F8ys/xfMrP8X+6D/F/ug/xcLnf8XMpP/Fwud/xcyk/8XMpP/FzKT/xcyk/8XMpP/l8yM/5fMjP+XzIz/l8yM/5fMjP+XzIz/l8yM/5fMjP+XzIz/l8ys/5cyk/+XMpP/lzKT/5cyk/8XMpP/FzKT"),
+"format": 34896613399,
+"index_count": 288,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoADgAMAA0ADQAPAA4AEgAQABEAEQATABIAFgAUABUAFQAXABYAGgAYABkAGQAbABoAHgAcAB0AHQAfAB4AIgAgACEAIQAjACIAJgAkACUAJQAnACYAKgAoACkAKQArACoALgAsAC0ALQAvAC4AMgAwADEAMQAzADIANgA0ADUANQA3ADYAOgA4ADkAOQA7ADoAPgA8AD0APQA/AD4AQgBAAEEAQQBDAEIARABBAEAAQQBFAEMAQABGAEQARQBHAEMARgBHAEQARgBDAEcASgBIAEkASQBLAEoATgBMAE0ATQBPAE4AUgBQAFEAUQBTAFIAVgBUAFUAVQBXAFYAWgBYAFkAWQBbAFoAXgBcAF0AXQBfAF4AYgBgAGEAYQBjAGIAZgBkAGUAZQBnAGYAagBoAGkAaQBrAGoAawBsAGoAawBtAGwAbQBuAGwAbQBvAG4AcgBwAHEAcQBzAHIAcwB0AHIAcwB1AHQAdQB2AHQAdQB3AHYAegB4AHkAeQB7AHoAfgB8AH0AfQB/AH4AggCAAIEAgQCDAIIAhgCEAIUAhQCHAIYAigCIAIkAiQCLAIoAjgCMAI0AjQCPAI4AkgCQAJEAkQCTAJIAlgCUAJUAlQCXAJYAmgCYAJkAmQCbAJoAngCcAJ0AnQCfAJ4AogCgAKEAoQCjAKIApgCkAKUApQCnAKYAqgCoAKkAqQCrAKoArgCsAK0ArQCvAK4A"),
+"lods": [0.0453577, PackedByteArray("AgAAAAEAAQADAAIAtAAAAAIAAgC3ALQAHQC3AB4AHgAcAB0AOgAcAB4AHgA7ADoABgAEAAUABQAHAAYABQAEALIAsgCwAAUAFQCwALIAswAUABUAMQAVABQAFAAwADEACgAIAAkACQALAAoAuAAJAAgACACxALgARQC4AEIAQgA8AEUAPgC4AEUAPAA+AEUAPgA8AD0APQA/AD4ADgAMAA0ADQAPAA4AtgANAAwADAC1ALYAGQC2ALUAtQAYABkANQAZABgAGAA0ADUALgAsAC0ALQAvAC4AvAC6ALkATgBWAE0AUgBNAFYAuwC9AFYAhgCEAIIAggCBAIYAgQCCAKkAqQCrAIEAigCIAH0AfQB/AIoAmQB/AH0AfQCYAJkAjgCcAI0AjQCPAI4AoQCNAJwAnACgAKEAlgCQAJEAkQCXAJYApQCRAJAAkACkAKUArgC+AL8ArQCvAK4A")],
+"material": SubResource("StandardMaterial3D_x3syx"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 192,
+"vertex_data": PackedByteArray("/z9Euf8/rMPgSp3F4EpiwP8/RLn/v6zD4EqdxR61YsD/P0S5/z////+/RLn/P///4EqdxeBK//8etZ3F4Er///+/RLn/P6zD/79Euf+/rMMetZ3F4EpiwB61ncUetWLA/79Euf+/15j/P0S5/7/XmB61ncUetfmH4EqdxR61+Yf//+qsAAD///+/RLn/P///AADqrAAA////P0S5/z///wAAWQwAAP////9ZDAAA//8AAOqsAAD/////6qwAAP////9ZDP//AYcAAFkM//8Bh///6qz//wCAAADqrP//AIAAAFkMAABMwAAA6qwAAP+/AABZDP//TMAAAOqs////v///6qz//yCjAADqrP//IKP/v0S5/7/XmP8/RLn/v9eY///qrAAAJcf//+qs//8lx/+/RLn/P6zD/79Euf+/rMP/P0S5/z+sw/8/RLn/v6zDAADqrAAAJccAAOqs//8lx/ToAAD06P+/9OgAAAoX/78KFwAA9Oj/vwoXAAAKF/+/ChcAAAoX///06AAAChf//wAAWQwAAP////9ZDAAA///06AAA9OgykAoXAAD06DKQ//9ZDP//AYcAAFkM//8BhwAAWQwAAEzAAABZDP//TMAKFwAACheWwQoXAAD06JbB//9ZDAAATMD06AAACheWwf//WQz//0zA9OgAAPTolsH//1kMAABMwP//fKEoMP+////qrAAA/7///+qs////v///mTQoMP+///98odbP/7///1kM//9MwP//mTTWz/+/Z8f30eBK/89nx53F4Er/z2fH99Eetf+vZ8edxR61/6/gSp3Flzj/7x61ncWXOP/v4Er30Zc4/+8etffRlzj/7x61ncVnx/+P4EqdxWfH/48etffRZ8f/j+BK99Fnx/+PlzidxeBK/8+XOPfR4Er/z5c4ncUetf+vlzj30R61/6/gSp3FZ8f/j5c4ncUetf+v4Er30WfH/4+XOPfRHrX/r+BKncWXOP/v4Er30Zc4/++XOJ3F4Er/z5c499HgSv/PHrX30Zc4/+8etZ3Flzj/72fH99HgSv/PZ8edxeBK/89nx53FHrX/rx61ncVnx/+PZ8f30R61/68etffRZ8f/j2fHncUetf+/Z8edxeBK/78etZ3FZ8f/vx61ncWXOP+/4EqdxWfH/7/gSp3Flzj/v5c4ncUetf+/lzidxeBK/79nx/fR4Er//2fH99Eetf//HrX30Zc4//8etffRZ8f//+BK99GXOP//4Er30WfH//+XOPfR4Er//5c499Eetf////+ZNNbP/7///3yh1s//v///mTQoMP+///98oSgw/7+2sEruSE8swEinNue2WCbAtrBK7rawLMBIpzbnSKcmwEhPSu5ITyzASE9K7rawLMC2WDbntlgmwLZYNudIpybAUFL30VBSC8C2WDbntlgmwFBS99GurQvAtlg250inJsC2sP//SE//v7awSu5ITyzAtrD//7aw/7+2sErutrAswLawSu62sFmFSE9K7rawWYW2sP//trAAgEhP//+2sACAtlg257ZY//9Ipzbntlj//0hPSu5IT///trBK7khP//9IT0ruSE///7awSu5IT///SE///0hP//+2sP//SE///66t99FQUgvArq330a6tC8BIpzbntlgmwEinNudIpybASKc250inAIW2WDbnSKcAhbawSu62sFmFSE9K7rawWYWurffRrq3BglBS99GurcGCSKc250inAIW2WDbnSKcAhVBS99FQUv//rq330VBS//+2WDbntlj//0inNue2WP//SE9K7khPLMBIT///SE//v0hPSu62sCzASE///7aw/7+2sP//SE///7aw//+2sP//SE///0hP//9IT///trD/////6qwAAP/////qrAAA//8AAOqsAAD//wAA6qwAAP//AADqrAAA/////+qs//9diAAA6qz//xKUAADqrP//XsH//+qs//9UwR61ncWXOCj64Er30Zc4xeTgSvfRlziW+R6199Fnx12mHrX30WfHw8e2sP//SE+w/baw//+2sLf9t5iOzoGK++q3mI7OgYr76v9/W+H/f1vh/3+M9P9/jPRwsbgYcLG4GAOVgQoDlYEK////f////3////9/////f/9/q9f/f1vh/3+r1/9/W+Eniv//J4r///9/////f///AAD/fwAA/3//f////3///y1tlfb/f///LW2V9v9///////9/////f////3////9/U72pHlO9qR5wsbgYcLG4GLeYjs63mI7OqZ6rwqmeq8IAAP9/AAD/fwAA/38AAP9/dpX//3aV//8niv//J4r//wAA/38AAP9/AAD/fwAA/38tbZX2LW2V9jxbne08W53tlnbSEp1twySWdtISnW3DJJZ20hL/fwAA/38AAP9/AAD/fwAA/38AAJZ20hL/fwAA/38AAP9/AAD/fwAA/38AAP9/////fwAA/3////9/AAD/fwAA/3////9/AAD/f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAAAAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//38AAP9/AAD/fwAA/38AAI943w79eAQOj3jfDv14BA4fcY/4H3GP+Ptx/Pj7cfz4DoTh9/tx/PgOhOH3+3H8+P9/AACPeN8O/38AAI943w4AAP9/AAD/f/9/////f///aYf//2mH///kh///5If//+SH///kh////3////9///8diA4EHYgOBP14BA79eAQOAAD/fwAA/38AAP9/AAD/f////3////9/AAD/fwAA/3//f877/3/O+2mH//9ph///H3GP+P9///8fcY/4/3////9//7//f/+//3//v/9//7//f9/ryVo1Jf9/IeaKhv//FlkV2f///3////9/YpE43WeiMxGuMcQF0HVW2QZ/9LqT74JcCNXyRE9zsAzcZCMb")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a5ijg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8v6y"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.177429, 0.756901, 0.890625, 1)
+
+[node name="Bottle" instance=ExtResource("1_53pbc")]
+ranged_grab_method = 0
+second_hand_grab = 1
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_txu6b")
+
+[node name="bottle-oil2" parent="." index="1" instance=ExtResource("2_xcfw2")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="2"]
+script = ExtResource("2_jw25y")
+
+[node name="bottle-oil" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+transform = Transform3D(0.732848, 0, 0, 0, 0.708247, 0, 0, 0, 0.72, 0, 0.000549719, 0)
+mesh = SubResource("ArrayMesh_fkmr7")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_x8v6y")
+
+[node name="Tracker" parent="." index="3" instance=ExtResource("3_57hd4")]
+
+[editable path="bottle-oil2"]

@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw2byr5pugr34"
-path.s3tc="res://.godot/imported/texture_08.png-66861350fd02bb079097d870a0afb9b3.s3tc.ctex"
-path.etc2="res://.godot/imported/texture_08.png-66861350fd02bb079097d870a0afb9b3.etc2.ctex"
+uid="uid://cnyn6wo7tbtv6"
+path.s3tc="res://.godot/imported/colormap.png-c4a9581f68e3ce5f484e04ffea7e2942.s3tc.ctex"
+path.etc2="res://.godot/imported/colormap.png-c4a9581f68e3ce5f484e04ffea7e2942.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Dark/texture_08.png"
-dest_files=["res://.godot/imported/texture_08.png-66861350fd02bb079097d870a0afb9b3.s3tc.ctex", "res://.godot/imported/texture_08.png-66861350fd02bb079097d870a0afb9b3.etc2.ctex"]
+source_file="res://Assets/3D/Blasters/Textures/colormap.png"
+dest_files=["res://.godot/imported/colormap.png-c4a9581f68e3ce5f484e04ffea7e2942.s3tc.ctex", "res://.godot/imported/colormap.png-c4a9581f68e3ce5f484e04ffea7e2942.etc2.ctex"]
 
 [params]
 

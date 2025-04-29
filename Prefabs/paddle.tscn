@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c82qkjwn0eimp"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_j04np"]
+[ext_resource type="PackedScene" uid="uid://lrwm1neouf38" path="res://Assets/3D/Blasters/target-large.glb" id="2_r2hrp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_avpl5"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.3
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vejm5"]
+points = PackedVector3Array(0.0249963, 0.152381, 0.0154762, -0.027381, -0.152381, -0.0130952, -0.027381, -0.152381, 0.0107106, 0.0297619, -0.152381, -0.00356956, -0.0130952, 0.152381, -0.027381, -0.0226153, 0.152381, 0.0202362, 0.00119048, -0.152381, 0.0297619, 0.0202362, -0.152381, -0.0226153, 0.0249963, 0.152381, -0.0178553, -0.027381, 0.152381, -0.0130952, 0.00119048, 0.152381, 0.0297619, -0.0130952, -0.152381, -0.027381, 0.0154762, -0.152381, 0.0249963, 0.0107106, 0.152381, -0.027381, -0.0178553, -0.152381, 0.0249963, 0.0297619, 0.152381, -0.00356956, 0.0249963, -0.152381, 0.0154762, -0.027381, 0.152381, 0.0107106, 0.0107106, -0.152381, -0.027381, 0.0154762, 0.152381, 0.0249963, -0.00356956, 0.152381, 0.0297619, 0.0297619, -0.152381, 0.00119048, 0.0249963, -0.152381, -0.0178553, -0.0178553, 0.152381, 0.0249963, -0.00356956, -0.152381, 0.0297619, 0.0297619, 0.152381, 0.00119048, 0.0202362, 0.152381, -0.0226153, -0.0226153, -0.152381, 0.0202362)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s6m4t"]
+size = Vector3(0.0505371, 0.25144, 0.257813)
+
+[node name="Paddle" type="RigidBody3D" groups=["Paddle"]]
+collision_layer = 4
+collision_mask = 196615
+center_of_mass_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_j04np")
+ranged_grab_method = 0
+second_hand_grab = 1
+
+[node name="target-large2" parent="." instance=ExtResource("2_r2hrp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="target-large" parent="target-large2" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -0.1, 0)
+
+[node name="Handle" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_avpl5")
+
+[node name="HandleCollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_vejm5")
+
+[node name="PaddleCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20072, 0)
+shape = SubResource("BoxShape3D_s6m4t")
+
+[editable path="target-large2"]
