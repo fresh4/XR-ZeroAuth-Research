@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xava6l5gmmeg"
-path="res://.godot/imported/table.glb-51c620e513d774967be14c6106ec4814.scn"
+uid="uid://t1std7c1gcfj"
+path="res://.godot/imported/wine-red.glb-c097cc8cfb3250f62762df4dca8444bb.scn"
 
 [deps]
 
-source_file="res://Assets/3D/table.glb"
-dest_files=["res://.godot/imported/table.glb-51c620e513d774967be14c6106ec4814.scn"]
+source_file="res://Assets/3D/Food/wine-red.glb"
+dest_files=["res://.godot/imported/wine-red.glb-c097cc8cfb3250f62762df4dca8444bb.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.5
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true

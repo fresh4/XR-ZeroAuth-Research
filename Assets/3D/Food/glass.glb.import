@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8fk8kdbunew5"
-path="res://.godot/imported/bottle-oil.glb-e35361b71cd3b32fb6e45cf5da1066ef.scn"
+uid="uid://kgu2gjc7gshu"
+path="res://.godot/imported/glass.glb-ab3f41d8abceb828db00f0c8a23f939d.scn"
 
 [deps]
 
-source_file="res://Assets/3D/bottle-oil.glb"
-dest_files=["res://.godot/imported/bottle-oil.glb-e35361b71cd3b32fb6e45cf5da1066ef.scn"]
+source_file="res://Assets/3D/Food/glass.glb"
+dest_files=["res://.godot/imported/glass.glb-ab3f41d8abceb828db00f0c8a23f939d.scn"]
 
 [params]
 

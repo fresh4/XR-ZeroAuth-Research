@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlcsifh5ipiqk"
-path.s3tc="res://.godot/imported/colormap.png-02fe8371614841a1511cd69ad3c68ac2.s3tc.ctex"
-path.etc2="res://.godot/imported/colormap.png-02fe8371614841a1511cd69ad3c68ac2.etc2.ctex"
+path.s3tc="res://.godot/imported/colormap.png-3488eb099dc02d6e0f077a397b5f0e2a.s3tc.ctex"
+path.etc2="res://.godot/imported/colormap.png-3488eb099dc02d6e0f077a397b5f0e2a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/3D/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-02fe8371614841a1511cd69ad3c68ac2.s3tc.ctex", "res://.godot/imported/colormap.png-02fe8371614841a1511cd69ad3c68ac2.etc2.ctex"]
+source_file="res://Assets/3D/Food/Textures/colormap.png"
+dest_files=["res://.godot/imported/colormap.png-3488eb099dc02d6e0f077a397b5f0e2a.s3tc.ctex", "res://.godot/imported/colormap.png-3488eb099dc02d6e0f077a397b5f0e2a.etc2.ctex"]
 
 [params]
 

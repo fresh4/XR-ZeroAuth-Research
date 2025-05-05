@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://br8xs8fmlyyip"]
+
+[ext_resource type="Script" path="res://Scripts/glass.gd" id="1_6lqi0"]
+[ext_resource type="PackedScene" uid="uid://kgu2gjc7gshu" path="res://Assets/3D/Food/glass.glb" id="1_bke3e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf2m2"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.725)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b3bfp"]
+top_radius = 0.037
+bottom_radius = 0.035
+height = 0.115
+radial_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4dyf"]
+albedo_color = Color(0.957031, 0.369576, 0.112152, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7gku"]
+size = Vector3(0.08, 0.141255, 0.08)
+
+[node name="Glass" type="Node3D"]
+script = ExtResource("1_6lqi0")
+
+[node name="glass2" parent="." instance=ExtResource("1_bke3e")]
+
+[node name="glass" parent="glass2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sf2m2")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="Liquid" type="CSGMesh3D" parent="CSGCombiner3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0742551, 0)
+mesh = SubResource("CylinderMesh_b3bfp")
+material = SubResource("StandardMaterial3D_n4dyf")
+
+[node name="SubtractionBox" type="CSGBox3D" parent="CSGCombiner3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0788855, 0)
+operation = 2
+size = Vector3(0.1, 0.128, 0.1)
+material = SubResource("StandardMaterial3D_n4dyf")
+
+[node name="Area3D" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0713159, 0)
+shape = SubResource("BoxShape3D_a7gku")
+
+[editable path="glass2"]

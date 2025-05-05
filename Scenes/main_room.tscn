@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bwhwq1h3lamea"]
+[gd_scene load_steps=50 format=3 uid="uid://bwhwq1h3lamea"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_u1oey"]
 [ext_resource type="PackedScene" uid="uid://d3rc247u6y0xf" path="res://Prefabs/player.tscn" id="2_6kaii"]
@@ -6,11 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://b4x6cnvgkioss" path="res://Textures/Light/texture_08.png" id="3_s52m4"]
 [ext_resource type="PackedScene" uid="uid://go0ei16ltt1e" path="res://Prefabs/shelf.tscn" id="5_fcm2c"]
 [ext_resource type="PackedScene" uid="uid://cac5xs50o0fmm" path="res://Prefabs/bottle.tscn" id="6_vm70u"]
-[ext_resource type="PackedScene" uid="uid://xava6l5gmmeg" path="res://Assets/3D/table.glb" id="6_ydri0"]
+[ext_resource type="PackedScene" uid="uid://xava6l5gmmeg" path="res://Assets/3D/Food/table.glb" id="6_ydri0"]
 [ext_resource type="PackedScene" uid="uid://crc1rye3oip80" path="res://Prefabs/winebottle.tscn" id="8_22msh"]
 [ext_resource type="PackedScene" uid="uid://btytj2lis8qhe" path="res://Assets/3D/Blasters/blaster-d.glb" id="9_vc5en"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="10_x3p6b"]
 [ext_resource type="PackedScene" uid="uid://c82qkjwn0eimp" path="res://Prefabs/paddle.tscn" id="11_t5mul"]
+[ext_resource type="PackedScene" uid="uid://bbxbaynmmrb26" path="res://Prefabs/ball.tscn" id="12_joris"]
+[ext_resource type="PackedScene" uid="uid://bn4nhsfm7vnbo" path="res://Assets/3D/Food/bowl.glb" id="13_d4cfc"]
+[ext_resource type="PackedScene" uid="uid://d2b6copw6nvyc" path="res://Assets/3D/Prototypes/indicator-special-arrow.glb" id="14_4o8n7"]
+[ext_resource type="PackedScene" uid="uid://4vxqp60ohawn" path="res://Prefabs/soda.tscn" id="14_n1b0p"]
+[ext_resource type="PackedScene" uid="uid://br8xs8fmlyyip" path="res://Prefabs/glass.tscn" id="15_l538g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jog0t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,9 +29,6 @@ background_mode = 2
 sky = SubResource("Sky_t652t")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h13ib"]
-points = PackedVector3Array(0, 0, -0.447373, 0, 0, 0, 0, 0.326734, -0.447373, 0.841488, 0, -0.447373, 0, 0.326734, 0, 0.841488, 0, 0, 0.841488, 0.326734, -0.447373, 0.841488, 0.326734, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxrbs"]
 emission_enabled = true
@@ -43,8 +45,8 @@ uv1_scale = Vector3(5, 5, 5)
 [sub_resource type="PlaneMesh" id="PlaneMesh_2ioww"]
 size = Vector2(1, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mrlax"]
-points = PackedVector3Array(0.507937, 0.00793651, 0.507937, -0.507937, -0.00793651, -0.507937, -0.507937, 0.00793651, -0.507937, 0.507937, -0.00793651, -0.507937, -0.507937, -0.00793651, 0.507937, -0.507937, 0.00793651, 0.507937, 0.507937, 0.00793651, -0.507937, 0.507937, -0.00793651, 0.507937)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_olfxh"]
+data = PackedVector3Array(0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx6vg"]
 albedo_texture = ExtResource("3_s52m4")
@@ -65,8 +67,65 @@ points = PackedVector3Array(0.507937, 0.00793651, 0.507937, -0.507937, -0.007936
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kqdch"]
 points = PackedVector3Array(0.507937, 0.00793651, 0.507937, -0.507937, -0.00793651, -0.507937, -0.507937, 0.00793651, -0.507937, 0.507937, -0.00793651, -0.507937, -0.507937, -0.00793651, 0.507937, -0.507937, 0.00793651, 0.507937, 0.507937, 0.00793651, -0.507937, 0.507937, -0.00793651, 0.507937)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8epj"]
+albedo_color = Color(0.878431, 0.286275, 0.286275, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3t52"]
+albedo_color = Color(0.286275, 0.878431, 0.309804, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfbea"]
+albedo_color = Color(0.286275, 0.419608, 0.878431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b32wm"]
+albedo_color = Color(0.878906, 0.284958, 0.284958, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5o3f5"]
+size = Vector3(0.1, 0.01, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfjur"]
+albedo_color = Color(0.284958, 0.878906, 0.308159, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnxka"]
+albedo_color = Color(0.284958, 0.419524, 0.878906, 1)
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iq02p"]
 points = PackedVector3Array(0.8415, 0.324609, -0.0035278, 0.0102563, 0, -0.445083, 0.0058941, 0.322308, -0.4474, 0, 0.324609, -0.0035278, 0.831244, -2.77556e-17, -0.00897592, 0.835606, 0.322308, -0.4474, 0.0102563, 0, -0.00897592, 0.831244, 0, -0.445083)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b08cm"]
+albedo_color = Color(0.337418, 0.590742, 0.949219, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as8n6"]
+albedo_color = Color(0.949219, 0.638538, 0.337418, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmc5e"]
+albedo_color = Color(0.949219, 0.337418, 0.882303, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hfxf"]
+albedo_color = Color(0.337418, 0.949219, 0.734132, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xb746"]
+data = PackedVector3Array(0, 0.0139, -0.075, 0.065, 0.0139, -0.0375, 0.065, 0.0139, 0.0375, 0.065, 0.0139, 0.0375, 0, 0.0139, 0.075, 0, 0.0139, -0.075, 0, 0.0139, 0.075, -0.065, 0.0139, -0.0375, 0, 0.0139, -0.075, 0, 0.0139, 0.075, -0.065, 0.0139, 0.0375, -0.065, 0.0139, -0.0375, 0, 0, 0.0498, 0.0431, 0, 0.0249, 0.0431, 0, -0.0249, 0.0431, 0, -0.0249, 0, 0, -0.0498, 0, 0, 0.0498, 0, 0, -0.0498, -0.0431, 0, 0.0249, 0, 0, 0.0498, 0, 0, -0.0498, -0.0431, 0, -0.0249, -0.0431, 0, 0.0249, 0, 0.0206, -0.068, 0.0589, 0.0206, -0.034, 0.0589, 0.0206, 0.034, 0.0589, 0.0206, 0.034, 0, 0.0206, 0.068, 0, 0.0206, -0.068, 0, 0.0206, 0.068, -0.0589, 0.0206, -0.034, 0, 0.0206, -0.068, 0, 0.0206, 0.068, -0.0589, 0.0206, 0.034, -0.0589, 0.0206, -0.034, -0.0589, 0.0206, -0.034, -0.0589, 0.0206, 0.034, -0.0709, 0.069, 0.041, -0.0709, 0.069, 0.041, -0.0589, 0.0206, 0.034, 0, 0.0206, 0.068, -0.0709, 0.069, 0.041, -0.0709, 0.069, -0.041, -0.0589, 0.0206, -0.034, 0, 0.0206, 0.068, 0, 0.069, 0.0819, -0.0709, 0.069, 0.041, -0.0589, 0.0206, -0.034, -0.0709, 0.069, -0.041, 0, 0.069, -0.0819, 0, 0.069, 0.0819, 0, 0.0206, 0.068, 0.0589, 0.0206, 0.034, 0, 0.069, -0.0819, 0, 0.0206, -0.068, -0.0589, 0.0206, -0.034, 0.0589, 0.0206, 0.034, 0.0709, 0.069, 0.041, 0, 0.069, 0.0819, 0, 0.0206, -0.068, 0, 0.069, -0.0819, 0.0709, 0.069, -0.041, 0.0709, 0.069, 0.041, 0.0589, 0.0206, 0.034, 0.0589, 0.0206, -0.034, 0.0589, 0.0206, -0.034, 0.0709, 0.069, -0.041, 0.0709, 0.069, 0.041, 0.0709, 0.069, -0.041, 0.0589, 0.0206, -0.034, 0, 0.0206, -0.068, 0.081, 0.0473, 0.0468, 0.0708, 0.0251, 0.0409, 0, 0.0251, 0.0818, 0.0708, 0.0251, -0.0409, 0.0708, 0.0251, 0.0409, 0.081, 0.0473, 0.0468, 0, 0.0251, 0.0818, 0, 0.0473, 0.0935, 0.081, 0.0473, 0.0468, 0.081, 0.0473, 0.0468, 0.081, 0.0473, -0.0468, 0.0708, 0.0251, -0.0409, 0, 0.0473, 0.0935, 0, 0.0251, 0.0818, -0.0708, 0.0251, 0.0409, 0.0708, 0.0251, -0.0409, 0.081, 0.0473, -0.0468, 0, 0.0473, -0.0935, -0.0708, 0.0251, 0.0409, -0.081, 0.0473, 0.0468, 0, 0.0473, 0.0935, 0, 0.0473, -0.0935, 0, 0.0251, -0.0818, 0.0708, 0.0251, -0.0409, -0.081, 0.0473, 0.0468, -0.0708, 0.0251, 0.0409, -0.0708, 0.0251, -0.0409, 0, 0.0251, -0.0818, 0, 0.0473, -0.0935, -0.081, 0.0473, -0.0468, -0.081, 0.0473, -0.0468, -0.0708, 0.0251, -0.0409, 0, 0.0251, -0.0818, -0.0708, 0.0251, -0.0409, -0.081, 0.0473, -0.0468, -0.081, 0.0473, 0.0468, 0.081, 0.0473, -0.0468, 0.081, 0.069, -0.0468, 0, 0.069, -0.0935, 0.081, 0.069, 0.0468, 0.081, 0.069, -0.0468, 0.081, 0.0473, -0.0468, 0, 0.069, -0.0935, 0, 0.0473, -0.0935, 0.081, 0.0473, -0.0468, 0.081, 0.0473, -0.0468, 0.081, 0.0473, 0.0468, 0.081, 0.069, 0.0468, 0.081, 0.069, 0.0468, 0.081, 0.0473, 0.0468, 0, 0.0473, 0.0935, 0, 0.0473, 0.0935, 0, 0.069, 0.0935, 0.081, 0.069, 0.0468, 0, 0.0473, -0.0935, 0, 0.069, -0.0935, -0.081, 0.069, -0.0468, -0.081, 0.069, -0.0468, -0.081, 0.0473, -0.0468, 0, 0.0473, -0.0935, 0, 0.069, 0.0935, 0, 0.0473, 0.0935, -0.081, 0.0473, 0.0468, -0.081, 0.0473, 0.0468, -0.081, 0.0473, -0.0468, -0.081, 0.069, -0.0468, -0.081, 0.0473, 0.0468, -0.081, 0.069, 0.0468, 0, 0.069, 0.0935, -0.081, 0.069, -0.0468, -0.081, 0.069, 0.0468, -0.081, 0.0473, 0.0468, -0.065, 0.0139, 0.0375, -0.0431, 0, 0.0249, -0.0431, 0, -0.0249, 0, 0, 0.0498, -0.0431, 0, 0.0249, -0.065, 0.0139, 0.0375, -0.0431, 0, -0.0249, -0.065, 0.0139, -0.0375, -0.065, 0.0139, 0.0375, -0.065, 0.0139, 0.0375, 0, 0.0139, 0.075, 0, 0, 0.0498, -0.065, 0.0139, -0.0375, -0.0431, 0, -0.0249, 0, 0, -0.0498, 0, 0, -0.0498, 0, 0.0139, -0.075, -0.065, 0.0139, -0.0375, 0, 0.0139, -0.075, 0, 0, -0.0498, 0.0431, 0, -0.0249, 0.0431, 0, -0.0249, 0.065, 0.0139, -0.0375, 0, 0.0139, -0.075, 0.0431, 0, 0.0249, 0, 0, 0.0498, 0, 0.0139, 0.075, 0.065, 0.0139, -0.0375, 0.0431, 0, -0.0249, 0.0431, 0, 0.0249, 0, 0.0139, 0.075, 0.065, 0.0139, 0.0375, 0.0431, 0, 0.0249, 0.0431, 0, 0.0249, 0.065, 0.0139, 0.0375, 0.065, 0.0139, -0.0375, 0.0708, 0.0251, 0.0409, 0.065, 0.0139, 0.0375, 0, 0.0139, 0.075, 0.065, 0.0139, -0.0375, 0.065, 0.0139, 0.0375, 0.0708, 0.0251, 0.0409, 0, 0.0139, 0.075, 0, 0.0251, 0.0818, 0.0708, 0.0251, 0.0409, 0.0708, 0.0251, 0.0409, 0.0708, 0.0251, -0.0409, 0.065, 0.0139, -0.0375, 0, 0.0251, 0.0818, 0, 0.0139, 0.075, -0.065, 0.0139, 0.0375, 0.065, 0.0139, -0.0375, 0.0708, 0.0251, -0.0409, 0, 0.0251, -0.0818, -0.065, 0.0139, 0.0375, -0.0708, 0.0251, 0.0409, 0, 0.0251, 0.0818, 0, 0.0251, -0.0818, 0, 0.0139, -0.075, 0.065, 0.0139, -0.0375, -0.0708, 0.0251, 0.0409, -0.065, 0.0139, 0.0375, -0.065, 0.0139, -0.0375, 0, 0.0139, -0.075, 0, 0.0251, -0.0818, -0.0708, 0.0251, -0.0409, -0.0708, 0.0251, -0.0409, -0.065, 0.0139, -0.0375, 0, 0.0139, -0.075, -0.065, 0.0139, -0.0375, -0.0708, 0.0251, -0.0409, -0.0708, 0.0251, 0.0409, 0, 0.069, 0.0935, -0.081, 0.069, 0.0468, -0.0709, 0.069, 0.041, -0.081, 0.069, 0.0468, -0.081, 0.069, -0.0468, -0.0709, 0.069, 0.041, 0, 0.069, 0.0935, -0.0709, 0.069, 0.041, 0, 0.069, 0.0819, -0.0709, 0.069, -0.041, -0.0709, 0.069, 0.041, -0.081, 0.069, -0.0468, 0, 0.069, 0.0935, 0, 0.069, 0.0819, 0.0709, 0.069, 0.041, 0, 0.069, -0.0819, -0.0709, 0.069, -0.041, -0.081, 0.069, -0.0468, 0.081, 0.069, 0.0468, 0, 0.069, 0.0935, 0.0709, 0.069, 0.041, 0, 0.069, -0.0819, -0.081, 0.069, -0.0468, 0, 0.069, -0.0935, 0.0709, 0.069, 0.041, 0.0709, 0.069, -0.041, 0.081, 0.069, 0.0468, 0.0709, 0.069, -0.041, 0, 0.069, -0.0819, 0, 0.069, -0.0935, 0.081, 0.069, -0.0468, 0.081, 0.069, 0.0468, 0.0709, 0.069, -0.041, 0.0709, 0.069, -0.041, 0, 0.069, -0.0935, 0.081, 0.069, -0.0468)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxehl"]
+albedo_color = Color(0.957031, 0.35141, 0.35141, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_1rs70"]
+inner_radius = 0.069
+outer_radius = 0.1
+rings = 16
+ring_segments = 9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16d7w"]
+albedo_color = Color(0.957031, 0.848209, 0.35141, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1ou3"]
+albedo_color = Color(0.640026, 0.957031, 0.35141, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckwjk"]
+albedo_color = Color(0.781969, 0.35141, 0.957031, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqrsg"]
+albedo_color = Color(0.35141, 0.942837, 0.957031, 1)
 
 [node name="MainRoom" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_u1oey")
@@ -93,14 +152,6 @@ script = ExtResource("2_b8t28")
 [node name="Player" parent="." instance=ExtResource("2_6kaii")]
 
 [node name="Level" type="Node3D" parent="."]
-
-[node name="tableBottles" parent="Level" instance=ExtResource("6_ydri0")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.387278, 0.0396824, -2.18347)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Level/tableBottles/table(Clone)" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/tableBottles/table(Clone)/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_h13ib")
 
 [node name="Room" type="Node3D" parent="Level"]
 
@@ -152,7 +203,7 @@ skeleton = NodePath("../../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Room/Floor"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Room/Floor/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_mrlax")
+shape = SubResource("ConcavePolygonShape3D_olfxh")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Level/Room"]
 transform = Transform3D(-5, 4.37114e-07, 0, -4.37114e-07, -5, 0, 0, 0, 5, 0, 3.5, 0)
@@ -209,98 +260,228 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Room/WallE/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_kqdch")
 
-[node name="Bottles" type="Node3D" parent="Level"]
+[node name="ShelfExperiment" type="Node3D" parent="Level"]
+
+[node name="Bottles" type="Node3D" parent="Level/ShelfExperiment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.377259, 1.525, -2.2618)
 
-[node name="Winebottle" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="Winebottle2" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle2" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166021, -1, 0)
 
-[node name="Winebottle3" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle3" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366021, -1, 0)
 
-[node name="Winebottle4" parent="Level/Bottles" instance=ExtResource("8_22msh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.566021, -1, 0)
+[node name="Winebottle4" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.766021, -1, 0)
 
-[node name="Winebottle5" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle5" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="Winebottle6" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle6" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166021, -0.5, 0)
 
-[node name="Winebottle7" parent="Level/Bottles" instance=ExtResource("8_22msh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366021, -0.5, 0)
-
-[node name="Winebottle8" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle7" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.566021, -0.5, 0)
 
-[node name="Winebottle9" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle8" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.766021, -0.5, 0)
 
-[node name="Winebottle10" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle9" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
+
+[node name="Winebottle10" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166021, 0, 0)
 
-[node name="Winebottle11" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle11" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366021, 0, 0)
 
-[node name="Winebottle12" parent="Level/Bottles" instance=ExtResource("8_22msh")]
+[node name="Winebottle12" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("8_22msh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.566021, 0, 0)
 
-[node name="Bottle" parent="Level/Bottles" instance=ExtResource("6_vm70u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100069, -1.16032, 0.32833)
+[node name="Bottle" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("6_vm70u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.15007, -0.785373, 0.67833)
 
-[node name="Bottle2" parent="Level/Bottles" instance=ExtResource("6_vm70u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.350069, -1.16032, 0.32833)
+[node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle/bottle-oil2" index="0"]
+material_override = SubResource("StandardMaterial3D_h8epj")
 
-[node name="Bottle3" parent="Level/Bottles" instance=ExtResource("6_vm70u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.600069, -1.16032, 0.32833)
+[node name="Bottle2" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("6_vm70u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.15007, -0.785373, 0.42833)
 
-[node name="Shelves" type="Node3D" parent="Level"]
+[node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle2/bottle-oil2" index="0"]
+material_override = SubResource("StandardMaterial3D_a3t52")
+
+[node name="Bottle3" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("6_vm70u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.15007, -0.785373, 0.17833)
+
+[node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle3/bottle-oil2" index="0"]
+material_override = SubResource("StandardMaterial3D_lfbea")
+
+[node name="Shelf" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("5_fcm2c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.21069, -0.810373, 0.301483)
+skeleton = NodePath("../../..")
+
+[node name="Shelves" type="Node3D" parent="Level/ShelfExperiment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.3)
 
-[node name="Shelf" parent="Level/Shelves" instance=ExtResource("5_fcm2c")]
+[node name="Shelf" parent="Level/ShelfExperiment/Shelves" instance=ExtResource("5_fcm2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="Shelf2" parent="Level/Shelves" instance=ExtResource("5_fcm2c")]
-skeleton = NodePath("../../..")
+[node name="PlatformRed" type="MeshInstance3D" parent="Level/ShelfExperiment/Shelves/Shelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17684, 0.0223635, 0.0320826)
+material_override = SubResource("StandardMaterial3D_b32wm")
+mesh = SubResource("BoxMesh_5o3f5")
 
-[node name="Shelf3" parent="Level/Shelves" instance=ExtResource("5_fcm2c")]
+[node name="Shelf2" parent="Level/ShelfExperiment/Shelves" instance=ExtResource("5_fcm2c")]
+skeleton = NodePath("../../../..")
+
+[node name="PlatformGreen" type="MeshInstance3D" parent="Level/ShelfExperiment/Shelves/Shelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017625, 0.0232818, 0.0320826)
+material_override = SubResource("StandardMaterial3D_lfjur")
+mesh = SubResource("BoxMesh_5o3f5")
+skeleton = NodePath("../../Shelf")
+
+[node name="Shelf3" parent="Level/ShelfExperiment/Shelves" instance=ExtResource("5_fcm2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="Gun" parent="Level" node_paths=PackedStringArray("fire_angles") instance=ExtResource("9_vc5en")]
+[node name="PlatformBlue" type="MeshInstance3D" parent="Level/ShelfExperiment/Shelves/Shelf3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.379733, 0.0232818, 0.0320826)
+material_override = SubResource("StandardMaterial3D_dnxka")
+mesh = SubResource("BoxMesh_5o3f5")
+skeleton = NodePath("../../Shelf")
+
+[node name="ProjectileExperiment" type="Node3D" parent="Level"]
+
+[node name="Gun" parent="Level/ProjectileExperiment" node_paths=PackedStringArray("fire_angles") instance=ExtResource("9_vc5en")]
 transform = Transform3D(-4.37114e-08, 0.34202, 0.939693, 0, 0.939693, -0.34202, -1, -1.49502e-08, -4.10753e-08, 2.46, 1, 0)
 script = ExtResource("10_x3p6b")
 fire_angles = [NodePath("Target1"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4")]
 
-[node name="FireOrigin" type="Node3D" parent="Level/Gun"]
+[node name="FireOrigin" type="Node3D" parent="Level/ProjectileExperiment/Gun"]
 unique_name_in_owner = true
 transform = Transform3D(1, -1.77636e-15, 1.06581e-14, 1.77636e-15, 1, -1.19209e-07, -1.06581e-14, 1.19209e-07, 1, 1.64085e-08, 0.0620762, -0.422069)
 
-[node name="Target1" type="Node3D" parent="Level/Gun"]
+[node name="Target1" type="Node3D" parent="Level/ProjectileExperiment/Gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 6.14082e-16, 0, 6.14083e-16, 1, 7.04552e-08, -0.691575, -3.10915)
 
-[node name="Target2" type="Node3D" parent="Level/Gun"]
-transform = Transform3D(1, 0, 0, 0, 1, 6.14082e-16, 0, 6.14083e-16, 1, 0.154726, -0.879513, -3.04074)
+[node name="Target2" type="Node3D" parent="Level/ProjectileExperiment/Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 6.14082e-16, 0, 6.14083e-16, 1, 0.266714, -0.879513, -3.04074)
 
-[node name="Target3" type="Node3D" parent="Level/Gun"]
+[node name="Target3" type="Node3D" parent="Level/ProjectileExperiment/Gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 6.14082e-16, 0, 6.14083e-16, 1, -0.169273, -0.879513, -3.04074)
 
-[node name="Target4" type="Node3D" parent="Level/Gun"]
+[node name="Target4" type="Node3D" parent="Level/ProjectileExperiment/Gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 6.14082e-16, 0, 6.14083e-16, 1, 0.117722, -0.76591, -3.08209)
 
-[node name="tableProjectiles" parent="Level" instance=ExtResource("6_ydri0")]
-transform = Transform3D(6.03983e-08, 0, 1, 0, 2, 0, -0.8, 0, 7.54979e-08, -0.712315, 0.0396824, 0.319974)
+[node name="Target5" type="Node3D" parent="Level/ProjectileExperiment/Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 6.14082e-16, 0, 6.14083e-16, 1, -0.282278, -0.76591, -3.08209)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level/tableProjectiles/table(Clone)" index="0"]
+[node name="tableProjectiles" parent="Level/ProjectileExperiment" instance=ExtResource("6_ydri0")]
+transform = Transform3D(6.03983e-08, 0, 1, 0, 2, 0, -0.8, 0, 7.54979e-08, -0.712, 0.01, 0.32)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/tableProjectiles/table(Clone)/StaticBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/ProjectileExperiment/tableProjectiles/table(Clone)" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/ProjectileExperiment/tableProjectiles/table(Clone)/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_iq02p")
 
-[node name="Paddle" parent="Level" instance=ExtResource("11_t5mul")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.12384, 0.715334, -0.0395615)
+[node name="Paddle" parent="Level/ProjectileExperiment" instance=ExtResource("11_t5mul")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.12384, 0.685649, -0.0395615)
+can_sleep = false
+freeze_mode = 1
+
+[node name="HoopsExperiment" type="Node3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76666, 0, 1.75925)
+
+[node name="Shelf" parent="Level/HoopsExperiment" instance=ExtResource("5_fcm2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.895, 0.5)
+skeleton = NodePath("../..")
+
+[node name="Ball" parent="Level/HoopsExperiment" instance=ExtResource("12_joris")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.946, 0.3)
+
+[node name="MeshInstance3D" parent="Level/HoopsExperiment/Ball" index="1"]
+material_override = SubResource("StandardMaterial3D_b08cm")
+
+[node name="Ball2" parent="Level/HoopsExperiment" instance=ExtResource("12_joris")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.946, 0.3)
+
+[node name="MeshInstance3D" parent="Level/HoopsExperiment/Ball2" index="1"]
+material_override = SubResource("StandardMaterial3D_as8n6")
+
+[node name="Ball3" parent="Level/HoopsExperiment" instance=ExtResource("12_joris")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.946, 0.4)
+
+[node name="MeshInstance3D" parent="Level/HoopsExperiment/Ball3" index="1"]
+material_override = SubResource("StandardMaterial3D_mmc5e")
+
+[node name="Ball4" parent="Level/HoopsExperiment" instance=ExtResource("12_joris")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.946, 0.4)
+
+[node name="MeshInstance3D" parent="Level/HoopsExperiment/Ball4" index="1"]
+material_override = SubResource("StandardMaterial3D_4hfxf")
+
+[node name="BowlEnd" parent="Level/HoopsExperiment" instance=ExtResource("13_d4cfc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431577, 0.920258, 0.547993)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/HoopsExperiment/BowlEnd/bowl" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/HoopsExperiment/BowlEnd/bowl/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xb746")
+
+[node name="Hoops" type="Node3D" parent="Level/HoopsExperiment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332605, 0)
+
+[node name="Hoop1" type="MeshInstance3D" parent="Level/HoopsExperiment/Hoops"]
+transform = Transform3D(-0.0279914, -0.999608, 0, 0.999608, -0.0279914, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_xxehl")
+mesh = SubResource("TorusMesh_1rs70")
+skeleton = NodePath("../..")
+
+[node name="Hoop2" type="MeshInstance3D" parent="Level/HoopsExperiment/Hoops"]
+transform = Transform3D(0.488803, -0.67402, 0.553867, 0.872209, 0.364479, -0.326201, 0.0179925, 0.642536, 0.766044, -0.206737, 1.08379, 0.15547)
+material_override = SubResource("StandardMaterial3D_16d7w")
+mesh = SubResource("TorusMesh_1rs70")
+skeleton = NodePath("../..")
+
+[node name="Hoop3" type="MeshInstance3D" parent="Level/HoopsExperiment/Hoops"]
+transform = Transform3D(0.907162, -0.420783, 0, 0.420783, 0.907162, 0, 0, 0, 1, 0.214345, 0.819096, 0.0137262)
+material_override = SubResource("StandardMaterial3D_c1ou3")
+mesh = SubResource("TorusMesh_1rs70")
+skeleton = NodePath("../..")
+
+[node name="Hoop4" type="MeshInstance3D" parent="Level/HoopsExperiment/Hoops"]
+transform = Transform3D(0.655071, -0.740183, -0.151695, 0, 0.20077, -0.979638, 0.755568, 0.641732, 0.131519, 0.117822, 0.752797, 0.191669)
+material_override = SubResource("StandardMaterial3D_ckwjk")
+mesh = SubResource("TorusMesh_1rs70")
+skeleton = NodePath("../..")
+
+[node name="Hoop5" type="MeshInstance3D" parent="Level/HoopsExperiment/Hoops"]
+transform = Transform3D(0.0209626, -0.541048, 0.840731, 0.507993, -0.718513, -0.475061, 0.861106, 0.437044, 0.259787, -0.117905, 0.788142, 0.290181)
+material_override = SubResource("StandardMaterial3D_oqrsg")
+mesh = SubResource("TorusMesh_1rs70")
+skeleton = NodePath("../..")
+
+[node name="PourExperiment" type="Node3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, 1.8)
+
+[node name="Shelf" parent="Level/PourExperiment" instance=ExtResource("5_fcm2c")]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.357, 0.895, 0.46)
+skeleton = NodePath("../../..")
+
+[node name="Soda" parent="Level/PourExperiment" instance=ExtResource("14_n1b0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.917087, 0.35)
+
+[node name="Glass" parent="Level/PourExperiment" instance=ExtResource("15_l538g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.558875, 0.919311, 0.35)
+
+[node name="Glass2" parent="Level/PourExperiment" instance=ExtResource("15_l538g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.846631, 0.919311, 0.35)
+
+[node name="Glass3" parent="Level/PourExperiment" instance=ExtResource("15_l538g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28, 0.919311, 0.35)
 
 [node name="TeleportPoints" type="Node3D" parent="."]
 
@@ -308,15 +489,43 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.123
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47808)
 
 [node name="Label3D" type="Label3D" parent="TeleportPoints/Point1"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0108007, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
 text = "^"
+
+[node name="indicator-special-arrow" parent="TeleportPoints/Point1" instance=ExtResource("14_4o8n7")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.01, 0)
+visible = false
 
 [node name="Point2" type="Node3D" parent="TeleportPoints" groups=["TeleportPoints"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.5, 0, 0.02192)
 
 [node name="Label3D" type="Label3D" parent="TeleportPoints/Point2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0108007, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
 text = "^"
 
-[editable path="Level/tableBottles"]
-[editable path="Level/tableProjectiles"]
+[node name="Point3" type="Node3D" parent="TeleportPoints" groups=["TeleportPoints"]]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 1.1, 0, 1.62192)
+
+[node name="Label3D" type="Label3D" parent="TeleportPoints/Point3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
+text = "^"
+
+[node name="Point4" type="Node3D" parent="TeleportPoints" groups=["TeleportPoints"]]
+transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -1.1, 0, 1.52192)
+
+[node name="Label3D" type="Label3D" parent="TeleportPoints/Point4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.001, 0)
+text = "^"
+
+[editable path="Level/ShelfExperiment/Bottles/Bottle"]
+[editable path="Level/ShelfExperiment/Bottles/Bottle/bottle-oil2"]
+[editable path="Level/ShelfExperiment/Bottles/Bottle2"]
+[editable path="Level/ShelfExperiment/Bottles/Bottle2/bottle-oil2"]
+[editable path="Level/ShelfExperiment/Bottles/Bottle3"]
+[editable path="Level/ShelfExperiment/Bottles/Bottle3/bottle-oil2"]
+[editable path="Level/ProjectileExperiment/tableProjectiles"]
+[editable path="Level/HoopsExperiment/Ball"]
+[editable path="Level/HoopsExperiment/Ball2"]
+[editable path="Level/HoopsExperiment/Ball3"]
+[editable path="Level/HoopsExperiment/Ball4"]
+[editable path="Level/HoopsExperiment/BowlEnd"]

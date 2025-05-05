@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://4vxqp60ohawn"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_hiqio"]
+[ext_resource type="PackedScene" uid="uid://7ri3riqg1aai" path="res://Assets/3D/Food/soda-can.glb" id="2_7wl67"]
+[ext_resource type="Script" path="res://Scripts/soda.gd" id="3_6i8yk"]
+[ext_resource type="PackedScene" uid="uid://dnmdx15up5qbq" path="res://Functions/tracker.tscn" id="4_ahl43"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v7ifp"]
+points = PackedVector3Array(0.0325574, 0.0029129, 0.0325574, -0.0543435, 0.0168285, -0.00446688, -0.0435218, 0.0173381, -0.0305045, -0.0158483, 0.176691, 0.00361616, 0.0401193, 0.140107, -0.0385851, 0.00339983, 0.143034, 0.0535304, 0.037888, 0.0134301, -0.0389864, -0.035959, 0.140101, -0.041213, 0.0535298, 0.140389, 0.00603598, -0.0385851, 0.140107, 0.0401193, -0.00711023, 0.0168288, 0.0532449, 0.00341105, 0.0162507, -0.0547823, -0.0546283, 0.143033, 0.000763601, -0.00186952, 0.16132, -0.0492215, 0.0353, 0.162015, 0.0353, 0.0404798, 0.0161905, 0.0378238, 0.0538687, 0.0133468, -0.00187023, -0.0389864, 0.0134301, 0.037888, -0.0308324, 0.00340306, -0.0334537, 0.048135, 0.161338, -0.00447859, -0.0356229, 0.160391, 0.0345245, -0.0360765, 0.161331, -0.0334354, -0.0336546, 0.0029159, 0.029909, 0.029909, 0.0029159, -0.0336546, 0.000763613, 0.143034, -0.0546288, -0.0359857, 0.0167896, -0.0412437, 0.0377085, 0.140412, 0.0403564, 0.00605471, 0.0162511, 0.0536836, -0.0044888, 0.161315, 0.0481307, 0.0345245, 0.160407, -0.0356229, -0.0492302, 0.161333, -0.00184863, -0.0547823, 0.0162507, 0.00341104)
+
+[sub_resource type="Curve" id="Curve_da2u0"]
+_data = [Vector2(0, 0.218529), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d6obv"]
+curve = SubResource("Curve_da2u0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_guc52"]
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 0.01
+angle_min = -360.0
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -2, 0)
+tangential_accel_min = -0.200002
+tangential_accel_max = 0.199998
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_d6obv")
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxjiu"]
+transparency = 1
+shading_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.719, 0.328, 0.042, 0.621)
+emission = Color(0.640625, 0.623108, 0.623108, 1)
+emission_energy_multiplier = 5.13
+emission_operator = 1
+rim_tint = 1.0
+refraction_scale = -0.59
+uv1_triplanar_sharpness = 0.133972
+
+[sub_resource type="BoxMesh" id="BoxMesh_ad0q0"]
+material = SubResource("StandardMaterial3D_hxjiu")
+size = Vector3(0.02, 0.02, 0.02)
+
+[node name="Soda" instance=ExtResource("1_hiqio")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("ConvexPolygonShape3D_v7ifp")
+
+[node name="soda-can2" parent="." index="1" instance=ExtResource("2_7wl67")]
+
+[node name="Particles" type="GPUParticles3D" parent="." index="2"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0162492, 0.161051, 0)
+emitting = false
+amount = 128
+lifetime = 3.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_guc52")
+draw_pass_1 = SubResource("BoxMesh_ad0q0")
+script = ExtResource("3_6i8yk")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="3"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.155948, 0)
+enabled = false
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Tracker" parent="." index="4" instance=ExtResource("4_ahl43")]
+
+[editable path="soda-can2"]

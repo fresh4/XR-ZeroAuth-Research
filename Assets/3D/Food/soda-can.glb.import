@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://t1std7c1gcfj"
-path="res://.godot/imported/wine-red.glb-627a99a9106bf8ff8079ba6fbbe0264d.scn"
+uid="uid://7ri3riqg1aai"
+path="res://.godot/imported/soda-can.glb-f57ae523856612686bbeecd9a4f8b002.scn"
 
 [deps]
 
-source_file="res://Assets/3D/wine-red.glb"
-dest_files=["res://.godot/imported/wine-red.glb-627a99a9106bf8ff8079ba6fbbe0264d.scn"]
+source_file="res://Assets/3D/Food/soda-can.glb"
+dest_files=["res://.godot/imported/soda-can.glb-f57ae523856612686bbeecd9a4f8b002.scn"]
 
 [params]
 

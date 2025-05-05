@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://kgu2gjc7gshu"
-path="res://.godot/imported/glass.glb-cc648c48c7e0c1f85760da54219259e9.scn"
+uid="uid://xava6l5gmmeg"
+path="res://.godot/imported/table.glb-efc397c3b666f95b5def2021c0cc0883.scn"
 
 [deps]
 
-source_file="res://Assets/3D/glass.glb"
-dest_files=["res://.godot/imported/glass.glb-cc648c48c7e0c1f85760da54219259e9.scn"]
+source_file="res://Assets/3D/Food/table.glb"
+dest_files=["res://.godot/imported/table.glb-efc397c3b666f95b5def2021c0cc0883.scn"]
 
 [params]
 

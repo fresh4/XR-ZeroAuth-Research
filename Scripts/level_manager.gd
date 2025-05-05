@@ -46,7 +46,9 @@ func _input(event: InputEvent) -> void:
 		calibration_data = calibration_headers;
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	# Handles teleporting to the nth experiment spot
 	if event is InputEventKey and event.keycode in teleport_point_key_map:
+		if !teleport_point_key_map: return
 		var idx: int = teleport_point_key_map.find(event.keycode)
 		player.position = teleport_points[idx].global_position;
 		player.rotation.y = teleport_points[idx].global_rotation.y;
