@@ -12,11 +12,13 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	ray_cast_3d.global_rotation_degrees.z = 0;
 	if abs(parent.rotation_degrees.x) > 80 or abs(parent.rotation_degrees.z) > 80:
-		ray_cast_3d.enabled = true
 		emitting = true
+		await get_tree().create_timer(0.5).timeout
+		ray_cast_3d.enabled = true
 	else:
-		ray_cast_3d.enabled = false
 		emitting = false
+		await get_tree().create_timer(0.5).timeout
+		ray_cast_3d.enabled = false
 	
 	if ray_cast_3d.is_colliding():
 		# Found a collision
