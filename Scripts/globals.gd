@@ -11,6 +11,8 @@ const PORT: int = 6000
 var is_recording: bool = false; 
 var socket: PacketPeerUDP = PacketPeerUDP.new()
 
+var flag = "";
+
 func _ready() -> void:
 	socket.connect_to_host(HOST, PORT)
 	if socket.is_socket_connected():

@@ -4,9 +4,8 @@ extends Node3D
 @onready var headset: XRCamera3D = player.get_node("%Headset"); ## Get XR Camera from Player children.
 
 # Default CSV column headers. Rotation and Position for the headset.
-const headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z\n";
+const headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z, flag\n";
 var data: String = headers;
-var flag = "";
 
 # Column headers for arm length calibration csv.
 const calibration_headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z," + \
@@ -67,7 +66,8 @@ func recenter_headset():
 # Every (physics) frame we append the current positional states as a row in the csv.
 func record_headset():
 	data += str(headset.rotation.x) + ", " + str(headset.rotation.y) + ", " + str(headset.rotation.z) + ", "\
-		 + str(headset.global_position.x) + ", " + str(headset.global_position.y) + ", " + str(headset.global_position.z) + "\n";
+		 + str(headset.global_position.x) + ", " + str(headset.global_position.y) + ", " + str(headset.global_position.z) + ", "\
+		 + Globals.flag + "\n";
 		
 # Every (physics) frame we append the current positional states as a row in the csv.
 func calibrate_arm_length():
