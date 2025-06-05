@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 	timer.start()
 	# FIRE!
 	var ball: RigidBody3D = BALL.instantiate();
-	ball.name = "ball" + str(balls_launched_num)
+	ball.name = "Projectile" + str(balls_launched_num)
 	fire_origin.add_child(ball);
 	
 	# Apply impulse to ball at certain angle to launch it at player

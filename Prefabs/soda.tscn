@@ -113,7 +113,7 @@ script = ExtResource("3_6i8yk")
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="3"]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.155948, 0)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 4, 0.0534493, 0.155948, 0)
 enabled = false
 collide_with_areas = true
 collide_with_bodies = false

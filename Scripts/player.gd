@@ -24,3 +24,23 @@ func get_right_fingertip_transform(hand: OpenXRFbHandTrackingMesh = self.rh) -> 
 		hand.to_global( hand.get_bone_global_pose( hand.find_bone("RightLittleTip") ).origin),
 	];
 	return rh_tips;
+
+func get_left_knuckle_transform(hand: OpenXRFbHandTrackingMesh = lh) -> Array[Vector3]:
+	var lh_tips: Array[Vector3] = [
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("LeftThumbProximal") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("LeftIndexIntermediate") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("LeftMiddleIntermediate") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("LeftRingIntermediate") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("LeftLittleIntermediate") ).origin),
+	];
+	return lh_tips;
+	
+func get_right_knuckle_transform(hand: OpenXRFbHandTrackingMesh = self.rh) -> Array[Vector3]:
+	var rh_tips: Array[Vector3] = [
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("RightThumbProximal") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("RightIndexIntermediate") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("RightMiddleIntermediate") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("RightRingIntermediate") ).origin),
+		hand.to_global( hand.get_bone_global_pose( hand.find_bone("RightLittleIntermediate") ).origin),
+	];
+	return rh_tips;

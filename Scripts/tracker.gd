@@ -17,6 +17,16 @@ const headers: String = "lv_x, lv_y, lv_z, av_x, av_y, av_z, pos_x, pos_y, pos_z
 						"rh_middle_x, rh_middle_y, rh_middle_z," + \
 						"rh_ring_x, rh_ring_y, rh_ring_z," + \
 						"rh_little_x, rh_little_y, rh_little_z," + \
+						"lh_thumb_knuckle_x, lh_thumb_knuckle_y, lh_thumb_knuckle_z," + \
+						"lh_index_knuckle_x, lh_index_knuckle_y, lh_index_knuckle_z," + \
+						"lh_middle_knuckle_x, lh_middle_knuckle_y, lh_middle_knuckle_z," + \
+						"lh_ring_knuckle_x, lh_ring_knuckle_y, lh_ring_knuckle_z," + \
+						"lh_little_knuckle_x, lh_little_knuckle_y, lh_little_knuckle_z," + \
+						"rh_thumb_knuckle_x, rh_thumb_knuckle_y, rh_thumb_knuckle_z," + \
+						"rh_index_knuckle_x, rh_index_knuckle_y, rh_index_knuckle_z," + \
+						"rh_middle_knuckle_x, rh_middle_knuckle_y, rh_middle_knuckle_z," + \
+						"rh_ring_knuckle_x, rh_ring_knuckle_y, rh_ring_knuckle_z," + \
+						"rh_little_knuckle_x, rh_little_knuckle_y, rh_little_knuckle_z," + \
 						"rh_thumb_curl, rh_index_curl, rh_middle_curl, rh_ring_curl, rh_little_curl," + \
 						"lh_thumb_curl, lh_index_curl, lh_middle_curl, lh_ring_curl, lh_little_curl" + \
 						"\n";
@@ -59,9 +69,12 @@ func record_metrics():
 	if picked_up: #and (rb.linear_velocity.length() or rb.angular_velocity.length()):
 		saved = false; # If the object begins to move, reset saved state to be able to record current journey.
 		#print(rb.name + " " + str(rb.linear_velocity.length()) + " " + str(rb.angular_velocity.length())); 
-		# Left hand/Right hand; idx 0 -> 4, thumb -> little finger
+		# Left hand/Right hand; idx 0 -> 4, thumb -> little finger TIPS
 		var lh: Array[Vector3] = player.get_left_fingertip_transform();
 		var rh: Array[Vector3] = player.get_right_fingertip_transform();
+		# Middle Knuckles
+		var lh_m: Array[Vector3] = player.get_left_knuckle_transform();
+		var rh_m: Array[Vector3] = player.get_right_knuckle_transform();
 		
 		var rh_tracker = XRServer.get_tracker("/user/hand_tracker/right") as XRHandTracker
 		var lh_tracker = XRServer.get_tracker("/user/hand_tracker/left") as XRHandTracker
@@ -90,6 +103,16 @@ func record_metrics():
 			 + str(rh[2].x) + ", " + str(rh[2].y) + ", " + str(rh[2].z) + ", "\
 			 + str(rh[3].x) + ", " + str(rh[3].y) + ", " + str(rh[3].z) + ", "\
 			 + str(rh[4].x) + ", " + str(rh[4].y) + ", " + str(rh[4].z) + ", "\
+			 + str(lh_m[0].x) + ", " + str(lh_m[0].y) + ", " + str(lh_m[0].z) + ", "\
+			 + str(lh_m[1].x) + ", " + str(lh_m[1].y) + ", " + str(lh_m[1].z) + ", "\
+			 + str(lh_m[2].x) + ", " + str(lh_m[2].y) + ", " + str(lh_m[2].z) + ", "\
+			 + str(lh_m[3].x) + ", " + str(lh_m[3].y) + ", " + str(lh_m[3].z) + ", "\
+			 + str(lh_m[4].x) + ", " + str(lh_m[4].y) + ", " + str(lh_m[4].z) + ", "\
+			 + str(rh_m[0].x) + ", " + str(rh_m[0].y) + ", " + str(rh_m[0].z) + ", "\
+			 + str(rh_m[1].x) + ", " + str(rh_m[1].y) + ", " + str(rh_m[1].z) + ", "\
+			 + str(rh_m[2].x) + ", " + str(rh_m[2].y) + ", " + str(rh_m[2].z) + ", "\
+			 + str(rh_m[3].x) + ", " + str(rh_m[3].y) + ", " + str(rh_m[3].z) + ", "\
+			 + str(rh_m[4].x) + ", " + str(rh_m[4].y) + ", " + str(rh_m[4].z) + ", "\
 			 + str(rh_f.crl_thumb) + ", " + str(rh_f.crl_index) + ", " + str(rh_f.crl_middle) + ", " + str(rh_f.crl_ring) + ", " + str(rh_f.crl_pinky) + ", "\
 			 + str(lh_f.crl_thumb) + ", " + str(lh_f.crl_index) + ", " + str(lh_f.crl_middle) + ", " + str(lh_f.crl_ring) + ", " + str(lh_f.crl_pinky) \
 			 + "\n";

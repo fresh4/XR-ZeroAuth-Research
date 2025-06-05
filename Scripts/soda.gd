@@ -10,7 +10,7 @@ func _ready() -> void:
 	emitting = false;
 
 func _physics_process(_delta: float) -> void:
-	ray_cast_3d.global_rotation_degrees.z = 0;
+	ray_cast_3d.global_rotation_degrees = Vector3.ZERO;
 	if abs(parent.rotation_degrees.x) > 80 or abs(parent.rotation_degrees.z) > 80:
 		emitting = true
 		await get_tree().create_timer(0.5).timeout

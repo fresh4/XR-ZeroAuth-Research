@@ -6,6 +6,7 @@ extends Node3D
 # Default CSV column headers. Rotation and Position for the headset.
 const headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z\n";
 var data: String = headers;
+var flag = "";
 
 # Column headers for arm length calibration csv.
 const calibration_headers: String = "rot_x, rot_y, rot_z, pos_x, pos_y, pos_z," + \

@@ -17,7 +17,7 @@ radial_segments = 6
 albedo_color = Color(0.957031, 0.369576, 0.112152, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7gku"]
-size = Vector3(0.08, 0.141255, 0.08)
+size = Vector3(0.113525, 0.141255, 0.110352)
 
 [node name="Glass" type="Node3D"]
 script = ExtResource("1_6lqi0")
