@@ -14,7 +14,7 @@ max = 30.0
 [resource]
 script = ExtResource("2_kocur")
 pose_name = "Index Pinch"
-threshold = 0.2
-hold_time = 0.075
-release_time = 0.075
+threshold = 0.3
+hold_time = 0.05
+release_time = 0.05
 distance_thumb_index = SubResource("Resource_70eme")

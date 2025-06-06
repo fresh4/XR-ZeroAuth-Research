@@ -96,7 +96,8 @@ tracker = &"/user/hand_pose_controller/left"
 show_when_tracked = true
 
 [node name="FunctionPickup" parent="LeftHandTracker" instance=ExtResource("2_5blie")]
-grab_distance = 0.05
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
+grab_distance = 0.075
 ranged_enable = false
 ranged_distance = 0.0
 
@@ -117,24 +118,7 @@ tracker = &"/user/hand_pose_controller/right"
 show_when_tracked = true
 
 [node name="FunctionPickup" parent="RightHandTracker" instance=ExtResource("2_5blie")]
-grab_distance = 0.05
-ranged_enable = false
-ranged_distance = 0.0
-
-[node name="LeftControllerTracker" type="XRController3D" parent="."]
-tracker = &"left_hand"
-show_when_tracked = true
-
-[node name="FunctionPickup" parent="LeftControllerTracker" instance=ExtResource("2_5blie")]
-grab_distance = 0.075
-ranged_enable = false
-ranged_distance = 0.0
-
-[node name="RightControllerTracker" type="XRController3D" parent="."]
-tracker = &"right_hand"
-show_when_tracked = true
-
-[node name="FunctionPickup" parent="RightControllerTracker" instance=ExtResource("2_5blie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
 grab_distance = 0.075
 ranged_enable = false
 ranged_distance = 0.0
