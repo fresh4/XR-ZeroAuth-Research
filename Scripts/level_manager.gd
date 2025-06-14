@@ -138,6 +138,11 @@ func record_headset():
 		 + str(rh_f.crl_thumb) + ", " + str(rh_f.crl_index) + ", " + str(rh_f.crl_middle) + ", " + str(rh_f.crl_ring) + ", " + str(rh_f.crl_pinky) + ", "\
 		 + str(lh_f.crl_thumb) + ", " + str(lh_f.crl_index) + ", " + str(lh_f.crl_middle) + ", " + str(lh_f.crl_ring) + ", " + str(lh_f.crl_pinky) + ", "\
 		 + Globals.flag + "\n";
+	
+	# Periodically autosave the headset data to free up memory for performance
+	if len(data) > (1024 * 1024):
+		save_data("headset_data.csv", data, false);
+		data = "";
 	#data += str(headset.rotation.x) + ", " + str(headset.rotation.y) + ", " + str(headset.rotation.z) + ", "\
 		 #+ str(headset.global_position.x) + ", " + str(headset.global_position.y) + ", " + str(headset.global_position.z) + ", "\
 		 #+ Globals.flag + "\n";
@@ -156,13 +161,21 @@ func calibrate_arm_length():
 # Takes the csv formatted string and writes to file as an actual csv. 
 # Opens the location it's saved in for convenience.
 func save_data(filename = "headset_data.csv", values = data, popup: bool = true):
-	var csv = FileAccess.open("user://" + filename, FileAccess.WRITE);
+	# Create file if it doesn't exist.
+	if not FileAccess.file_exists("user://" + filename):
+		print("Creating file ", filename)
+		FileAccess.open("user://" + filename, FileAccess.WRITE).close();
+	
+	var csv = FileAccess.open("user://" + filename, FileAccess.READ_WRITE);
+	csv.seek_end()
 	csv.store_string(values);
-	print("Saving " + filename + " in user directory. File size: " + str(csv.get_length()/1000.0) + "kb");
+	print("Saving " + filename + " in user directory. File size: " + str(csv.get_length()/1024.0) + "kb");
 	if popup:
 		OS.shell_show_in_file_manager(ProjectSettings.globalize_path("user://"));
+	csv.close()
 
 func _on_recording_toggled():
 	# If we start recording, reset the csv to record new information.
-	if Globals.is_recording: data = headers;
+	if Globals.is_recording: 
+		data = headers;
 	print("Recording headset metrics: " + str(Globals.is_recording));
