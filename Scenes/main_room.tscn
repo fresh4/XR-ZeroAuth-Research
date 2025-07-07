@@ -297,17 +297,26 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1500
 [node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle/bottle-oil2" index="0"]
 material_override = SubResource("StandardMaterial3D_b32wm")
 
+[node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle/XRToolsHighlightVisible" index="0"]
+surface_material_override/0 = null
+
 [node name="Bottle2" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("6_vm70u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.15007, -0.785373, 0.42833)
 
 [node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle2/bottle-oil2" index="0"]
 material_override = SubResource("StandardMaterial3D_lfjur")
 
+[node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle2/XRToolsHighlightVisible" index="0"]
+surface_material_override/0 = null
+
 [node name="Bottle3" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("6_vm70u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.15007, -0.785373, 0.17833)
 
 [node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle3/bottle-oil2" index="0"]
 material_override = SubResource("StandardMaterial3D_dnxka")
+
+[node name="bottle-oil" parent="Level/ShelfExperiment/Bottles/Bottle3/XRToolsHighlightVisible" index="0"]
+surface_material_override/0 = null
 
 [node name="Shelf" parent="Level/ShelfExperiment/Bottles" instance=ExtResource("5_fcm2c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.21069, -0.810373, 0.301483)
