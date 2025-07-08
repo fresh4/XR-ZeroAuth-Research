@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://ofaq15j8tjsl"]
+[gd_scene load_steps=52 format=4 uid="uid://ofaq15j8tjsl"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_cme1g"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_7t2xa"]
@@ -95,6 +95,14 @@ size = Vector3(2, 1, 0.75)
 size = Vector3(2, 1, 0.75)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvv82"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7t1x"]
+size = Vector3(0.105, 0.105, 0.105)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8v6y"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.177429, 0.756901, 0.890625, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_geu7f"]
 
@@ -341,8 +349,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 [node name="MeshInstance3D" parent="CubeExperiment/CubeWood" index="1"]
 material_override = SubResource("StandardMaterial3D_lvv82")
 
+[node name="HighlightMesh" type="MeshInstance3D" parent="CubeExperiment/CubeWood"]
+mesh = SubResource("BoxMesh_y7t1x")
+surface_material_override/0 = SubResource("StandardMaterial3D_x8v6y")
+
 [node name="Flicker" type="Node3D" parent="CubeExperiment/CubeWood"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 script = ExtResource("10_5v6sl")
 id = "1"
 frequency = 3
@@ -352,8 +363,11 @@ frequency = 3
 [node name="MeshInstance3D" parent="CubeExperiment/CubeNormal" index="1"]
 material_override = SubResource("StandardMaterial3D_geu7f")
 
+[node name="HighlightMesh" type="MeshInstance3D" parent="CubeExperiment/CubeNormal"]
+mesh = SubResource("BoxMesh_y7t1x")
+surface_material_override/0 = SubResource("StandardMaterial3D_x8v6y")
+
 [node name="Flicker" type="Node3D" parent="CubeExperiment/CubeNormal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
 script = ExtResource("10_5v6sl")
 id = "2"
 frequency = 5
@@ -363,6 +377,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
 
 [node name="MeshInstance3D" parent="CubeExperiment/CubeMetal" index="1"]
 material_override = SubResource("StandardMaterial3D_sr3xs")
+
+[node name="HighlightMesh" type="MeshInstance3D" parent="CubeExperiment/CubeMetal"]
+mesh = SubResource("BoxMesh_y7t1x")
+surface_material_override/0 = SubResource("StandardMaterial3D_x8v6y")
 
 [node name="Flicker" type="Node3D" parent="CubeExperiment/CubeMetal"]
 script = ExtResource("10_5v6sl")
