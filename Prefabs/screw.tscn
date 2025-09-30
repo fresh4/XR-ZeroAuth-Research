@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpq01vx5qitab"]
+
+[ext_resource type="Script" path="res://Scripts/screw.gd" id="1_jo7u2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gs0gf"]
+albedo_color = Color(0.417969, 0.417969, 0.417969, 1)
+metallic = 0.46
+roughness = 0.47
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1w84y"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.1
+radial_segments = 6
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8l28h"]
+points = PackedVector3Array(-1.69501e-06, 0.05, 0.01, 0.00865856, 0.05, 0.005, -0.00866025, 0.05, 0.005, -1.69501e-06, -0.05, 0.01, 0.00865856, 0.05, -0.00500196, 0.00865856, -0.05, 0.005, -0.00866025, 0.05, -0.005, -0.00866025, -0.05, 0.005, -1.69501e-06, 0.05, -0.01, 0.00865856, -0.05, -0.00500196, -0.00866025, -0.05, -0.005, -1.69501e-06, -0.05, -0.01)
+
+[node name="Screw" type="Node3D"]
+script = ExtResource("1_jo7u2")
+
+[node name="ScrewMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_gs0gf")
+mesh = SubResource("CylinderMesh_1w84y")
+
+[node name="Area3D" type="Area3D" parent="ScrewMesh"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScrewMesh/Area3D"]
+shape = SubResource("ConvexPolygonShape3D_8l28h")

@@ -149,14 +149,14 @@ func record_headset():
 		
 # Every (physics) frame we append the current positional states as a row in the csv.
 func calibrate_arm_length():
-	var left_hand = player.left_hand_xr_node;
-	var right_hand = player.right_hand_xr_node;
+	var lh = player.left_hand_xr_node;
+	var rh = player.right_hand_xr_node;
 	calibration_data += str(headset.rotation.x) + ", " + str(headset.rotation.y) + ", " + str(headset.rotation.z) + ", "\
 		 + str(headset.global_position.x) + ", " + str(headset.global_position.y) + ", " + str(headset.global_position.z) + ", "\
-		 + str(left_hand.global_position.x) + ", " + str(left_hand.global_position.y) + ", " + str(left_hand.global_position.z) + ", "\
-		 + str(left_hand.rotation.x) + ", " + str(left_hand.rotation.y) + ", " + str(left_hand.rotation.z) + ", "\
-		 + str(right_hand.global_position.x) + ", " + str(right_hand.global_position.y) + ", " + str(right_hand.global_position.z) + ", "\
-		 + str(right_hand.rotation.x) + ", " + str(right_hand.rotation.y) + ", " + str(right_hand.rotation.z) + "\n"
+		 + str(lh.global_position.x) + ", " + str(lh.global_position.y) + ", " + str(lh.global_position.z) + ", "\
+		 + str(lh.rotation.x) + ", " + str(lh.rotation.y) + ", " + str(lh.rotation.z) + ", "\
+		 + str(rh.global_position.x) + ", " + str(rh.global_position.y) + ", " + str(rh.global_position.z) + ", "\
+		 + str(rh.rotation.x) + ", " + str(rh.rotation.y) + ", " + str(rh.rotation.z) + "\n"
 
 # Takes the csv formatted string and writes to file as an actual csv. 
 # Opens the location it's saved in for convenience.

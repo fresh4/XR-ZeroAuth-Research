@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3rc247u6y0xf"]
+[gd_scene load_steps=13 format=3 uid="uid://d3rc247u6y0xf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_u1ksl"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_5blie"]
@@ -24,6 +24,9 @@ action_name = "grip"
 [sub_resource type="Resource" id="Resource_ik7p7"]
 script = ExtResource("7_g7ufi")
 actions = Array[ExtResource("5_rex2v")]([SubResource("Resource_i1xvo"), SubResource("Resource_2v7td")])
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dnjof"]
+radius = 0.1
 
 [node name="Player" type="XROrigin3D" groups=["Player"]]
 script = ExtResource("1_u1ksl")
@@ -113,6 +116,13 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37, 0, 0)
 text = "Pose Data"
 
+[node name="LeftHandArea" type="Area3D" parent="LeftHandTracker"]
+collision_layer = 131072
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHandTracker/LeftHandArea"]
+shape = SubResource("SphereShape3D_dnjof")
+
 [node name="RightHandTracker" type="XRController3D" parent="."]
 tracker = &"/user/hand_pose_controller/right"
 show_when_tracked = true
@@ -122,3 +132,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
 grab_distance = 0.075
 ranged_enable = false
 ranged_distance = 0.0
+
+[node name="RightHandArea" type="Area3D" parent="RightHandTracker"]
+collision_layer = 131072
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHandTracker/RightHandArea"]
+shape = SubResource("SphereShape3D_dnjof")
