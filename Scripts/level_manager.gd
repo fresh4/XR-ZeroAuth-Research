@@ -49,7 +49,7 @@ func _ready() -> void:
 	left_hand = player.left_hand_xr_node;
 	right_hand = player.right_hand_xr_node;
 	Globals.recording_toggled.connect(_on_recording_toggled);
-	call_deferred("recenter_headset");
+	recenter_headset.call_deferred();
 	for i in get_tree().get_nodes_in_group("TeleportPoints"):
 		teleport_points.append(i)
 		teleport_point_key_map.append( len(teleport_point_key_map) + 49 )
@@ -87,7 +87,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 # Resets position and orientation to the center of the room.
 func recenter_headset():
 	print("Recentering Headset.")
-	player.position = Vector3(0,0,0); 
+	#player.position = Vector3(0,0,0);
 	player.rotation = Vector3(0,0,0);
 	# Necessary since the headset camera is separate from the player origin node.
 	# Built in function that resets and consolidates differences.
