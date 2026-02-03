@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceras16i4j0ml"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_tak56"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="2_0uh43"]
+[ext_resource type="PackedScene" uid="uid://dnmdx15up5qbq" path="res://Functions/tracker.tscn" id="3_scubf"]
+[ext_resource type="PackedScene" uid="uid://b10ebtsc5og52" path="res://Assets/3D/Food/cooking-knife-chopping.glb" id="4_pg1dk"]
+[ext_resource type="Material" uid="uid://cx2ccq5gbclly" path="res://Assets/highlight.tres" id="4_s4h7l"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2db18"]
+points = PackedVector3Array(0.119996, 0.0257143, -0.00992857, 0.119996, -0.00285714, -0.0613571, -0.182857, 0.00857311, 0.0757857, -0.159982, 0.0199978, -0.0499196, 0.0342589, 0.00285938, 0.0643482, -0.182857, 0.00285938, -0.0270714, -0.182857, 0.0199978, 0.070067, 0.182857, -0.00285714, -0.0270714, -0.182857, 0.00285938, 0.0643482, 0.182857, 0.0257143, -0.0613571, 0.03, 0.0139291, 0.0672613, 0.171402, 0.0257143, -0.0156339, 0.028567, 0.0257143, -0.0556384, -0.159982, 0.00285938, -0.0499196, 0.028567, -0.00285714, -0.0213527, 0.182857, -0.00285714, -0.0613571, -0.182857, 0.0199978, -0.0270714, 0.171402, -0.00285714, -0.0156339, 0.0258234, 0.0178878, 0.0545909, 0.028567, -0.00285714, -0.0556384, 0.028567, 0.0257143, -0.0213527, 0.119996, -0.00285714, -0.00992857, 0.182857, 0.0257143, -0.0270714, -0.182857, 0.014284, 0.0757857, 0.137107, 0.0257143, -0.00992857, 0.137107, -0.00285714, -0.00992857)
+
+[node name="Cube" instance=ExtResource("1_tak56")]
+ranged_grab_method = 0
+second_hand_grab = 1
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0494163, -0.0143274, -0.00739852)
+shape = SubResource("ConvexPolygonShape3D_2db18")
+
+[node name="cooking-knife-chopping2" parent="." index="1" instance=ExtResource("4_pg1dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.0145941, -0.00753927)
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="2"]
+script = ExtResource("2_0uh43")
+
+[node name="cooking-knife-chopping2" parent="XRToolsHighlightVisible" index="0" instance=ExtResource("4_pg1dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.0145941, -0.00753927)
+
+[node name="cooking-knife-chopping" parent="XRToolsHighlightVisible/cooking-knife-chopping2" index="0"]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_s4h7l")
+
+[node name="Tracker" parent="." index="3" instance=ExtResource("3_scubf")]
+
+[editable path="XRToolsHighlightVisible/cooking-knife-chopping2"]

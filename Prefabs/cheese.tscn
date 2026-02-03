@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://c35khc1eg14ut"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_roqdh"]
+[ext_resource type="PackedScene" uid="uid://bqm0ryjjbryqv" path="res://Assets/3D/Food/cheese-cut.glb" id="2_88shc"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="2_cwutw"]
+[ext_resource type="PackedScene" uid="uid://dnmdx15up5qbq" path="res://Functions/tracker.tscn" id="3_3fs65"]
+[ext_resource type="Material" uid="uid://cx2ccq5gbclly" path="res://Assets/highlight.tres" id="4_1gkc3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g864y"]
+size = Vector3(0.140381, 0.0115662, 0.0976563)
+
+[node name="Cheese" instance=ExtResource("1_roqdh")]
+ranged_grab_method = 0
+second_hand_grab = 1
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00270081, 0)
+shape = SubResource("BoxShape3D_g864y")
+
+[node name="cheese-cut" parent="." index="1" instance=ExtResource("2_88shc")]
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="2"]
+script = ExtResource("2_cwutw")
+
+[node name="cheese-cut2" parent="XRToolsHighlightVisible" index="0" instance=ExtResource("2_88shc")]
+
+[node name="cheese-cut" parent="XRToolsHighlightVisible/cheese-cut2" index="0"]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_1gkc3")
+
+[node name="Tracker" parent="." index="3" instance=ExtResource("3_3fs65")]
+
+[editable path="cheese-cut"]
+[editable path="XRToolsHighlightVisible/cheese-cut2"]

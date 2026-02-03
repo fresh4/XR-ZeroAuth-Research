@@ -40,15 +40,16 @@ ranged_grab_method = 0
 second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00131688, 0.0892033, 0.00824802)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_egyut")
 
 [node name="DoubleOpenEndedSpanner190412" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00131688, 0.0892033, 0.00824802)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_mo25s")
 mesh = ExtResource("5_yi6wy")
 
 [node name="XRToolsHighlightVisible" type="Node3D" parent="." index="2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("2_nrold")
 
 [node name="HighlightMesh" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]

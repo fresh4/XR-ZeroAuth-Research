@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy83jdxhbq25q"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_01gm2"]
+[ext_resource type="PackedScene" uid="uid://n2chwqbylfea" path="res://Assets/3D/Food/banana.glb" id="2_4lhha"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="3_aftlb"]
+[ext_resource type="PackedScene" uid="uid://dnmdx15up5qbq" path="res://Functions/tracker.tscn" id="4_lcc7d"]
+[ext_resource type="Material" uid="uid://cx2ccq5gbclly" path="res://Assets/highlight.tres" id="4_rlweb"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fwaqx"]
+points = PackedVector3Array(-0.013064, 0.00358586, -0.0209252, -0.019049, 0.0125546, -0.0119549, 0.00563342, 0.0682153, -0.111949, -0.0118467, 0.0647203, 0.111949, -0.0118467, 0.0612181, -0.111949, 0.011572, 0.00462415, -0.0447311, 0.00913149, 0.0682153, 0.111949, 0.0231238, 0.0297416, -0.0629659, -0.0106451, 0.00501636, 0.0252389, -0.0258492, 0.0262395, -0.0489613, 0.0111958, 0.00564546, 0.024709, 0.00563342, 0.050726, 0.111949, -0.0106099, 0.0239817, -0.0786073, 0.0231238, 0.0297416, 0.0349786, -0.00485051, 0.0717175, 0.108443, 0.0126296, 0.050726, -0.104936, -0.021905, 0.0216087, 0.0118808, -0.00834858, 0.0682153, -0.111949, -0.00834858, 0.050726, 0.111949, 0.0227097, 0.0186193, -0.00891203, 0.00913149, 0.0647203, -0.111949, -0.0109238, 0.00749085, -0.0517526, 0.01154, 0.00152062, -0.0223015, -0.0118467, 0.0542209, -0.111949, 0.0110488, 0.0212752, -0.0731189, 0.00563342, 0.0717175, 0.111949, -0.0188479, 0.0367244, -0.0874466, 0.00913149, 0.050726, 0.108443, 0.00829117, 0.0207554, 0.0569138, -0.0193096, 0.0274074, 0.0363646, -0.0105582, 0.00211911, 0.0062551, 0.0196257, 0.0367244, -0.0839619)
+
+[node name="Banana" instance=ExtResource("1_01gm2")]
+ranged_grab_method = 0
+second_hand_grab = 1
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("ConvexPolygonShape3D_fwaqx")
+
+[node name="banana2" parent="." index="1" instance=ExtResource("2_4lhha")]
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="2"]
+script = ExtResource("3_aftlb")
+
+[node name="banana2" parent="XRToolsHighlightVisible" index="0" instance=ExtResource("2_4lhha")]
+
+[node name="banana" parent="XRToolsHighlightVisible/banana2" index="0"]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_rlweb")
+
+[node name="Tracker" parent="." index="3" instance=ExtResource("4_lcc7d")]
+
+[editable path="XRToolsHighlightVisible/banana2"]
