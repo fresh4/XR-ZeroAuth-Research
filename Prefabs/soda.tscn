@@ -94,6 +94,7 @@ shading_mode = 0
 albedo_color = Color(0.133896, 0.843984, 0.878906, 1)
 
 [node name="Soda" instance=ExtResource("1_hiqio")]
+continuous_cd = true
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("ConvexPolygonShape3D_v7ifp")

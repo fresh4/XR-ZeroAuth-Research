@@ -61,6 +61,7 @@ func progress_next_model() -> void:
 	current_model.picked_up.connect(handle_pickup)
 	current_model.dropped.connect(handle_drop)
 	spawn_point.add_child(current_model)
+	current_model.name = current_model.name + ("_HOLD" if current_experiment == Experiment.HOLD else "_MOVE")
 	
 	if idx_label:
 		idx_label.text = str(progress_idx) + "/" + str(MAX_PROGRESS)

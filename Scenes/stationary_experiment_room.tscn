@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bsaxeclb51ld0"]
+[gd_scene load_steps=47 format=3 uid="uid://bsaxeclb51ld0"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_0e107"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_71i1u"]
@@ -89,6 +89,9 @@ font_names = PackedStringArray("Consolas")
 
 [sub_resource type="BoxMesh" id="BoxMesh_emt2p"]
 size = Vector3(0.2, 0.015, 0.2)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3rgxw"]
+absorbent = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_desyb"]
 data = PackedVector3Array(-0.1, 0.0075, 0.1, 0.1, 0.0075, 0.1, -0.1, -0.0075, 0.1, 0.1, 0.0075, 0.1, 0.1, -0.0075, 0.1, -0.1, -0.0075, 0.1, 0.1, 0.0075, -0.1, -0.1, 0.0075, -0.1, 0.1, -0.0075, -0.1, -0.1, 0.0075, -0.1, -0.1, -0.0075, -0.1, 0.1, -0.0075, -0.1, 0.1, 0.0075, 0.1, 0.1, 0.0075, -0.1, 0.1, -0.0075, 0.1, 0.1, 0.0075, -0.1, 0.1, -0.0075, -0.1, 0.1, -0.0075, 0.1, -0.1, 0.0075, -0.1, -0.1, 0.0075, 0.1, -0.1, -0.0075, -0.1, -0.1, 0.0075, 0.1, -0.1, -0.0075, 0.1, -0.1, -0.0075, -0.1, 0.1, 0.0075, 0.1, -0.1, 0.0075, 0.1, 0.1, 0.0075, -0.1, -0.1, 0.0075, 0.1, -0.1, 0.0075, -0.1, 0.1, 0.0075, -0.1, -0.1, -0.0075, 0.1, 0.1, -0.0075, 0.1, -0.1, -0.0075, -0.1, 0.1, -0.0075, 0.1, 0.1, -0.0075, -0.1, -0.1, -0.0075, -0.1)
@@ -275,28 +278,32 @@ timer = NodePath("../TimerBoard/Timer")
 move_experiment_node = NodePath("Hoops")
 move_experiment_spawn = NodePath("SpawnPoint2")
 
-[node name="SpawnPoint2" type="Node3D" parent="Experiment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297685, 0, 0)
-
-[node name="Platform1" type="MeshInstance3D" parent="Experiment/SpawnPoint2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0925, 0)
+[node name="Platform1" type="MeshInstance3D" parent="Experiment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297685, -0.0925, 0)
 material_override = SubResource("StandardMaterial3D_jtobu")
 mesh = SubResource("BoxMesh_emt2p")
+skeleton = NodePath("../SpawnPoint2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Experiment/SpawnPoint2/Platform1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Experiment/Platform1"]
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_3rgxw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Experiment/SpawnPoint2/Platform1/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Experiment/Platform1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_desyb")
 
-[node name="Platform2" type="MeshInstance3D" parent="Experiment/SpawnPoint2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.632116, -0.0925, 0)
+[node name="Platform2" type="MeshInstance3D" parent="Experiment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334431, -0.0925, 0)
 material_override = SubResource("StandardMaterial3D_7082t")
 mesh = SubResource("BoxMesh_emt2p")
+skeleton = NodePath("../SpawnPoint2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Experiment/SpawnPoint2/Platform2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Experiment/Platform2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Experiment/SpawnPoint2/Platform2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Experiment/Platform2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_a172g")
+
+[node name="SpawnPoint2" type="Node3D" parent="Experiment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297685, 0.00187165, 0)
 
 [node name="Hoops" type="Node3D" parent="Experiment"]
 visible = false

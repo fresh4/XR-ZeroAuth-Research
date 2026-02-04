@@ -10,6 +10,8 @@ height = 0.0879943
 radius = 0.05
 
 [node name="Burger" instance=ExtResource("1_51me4")]
+continuous_cd = true
+max_contacts_reported = 2
 ranged_grab_method = 0
 second_hand_grab = 1
 
