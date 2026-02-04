@@ -74,8 +74,8 @@ func handle_pickup(obj: XRToolsPickable) -> void:
 		pass
 
 func handle_drop(obj: XRToolsPickable) -> void:
-	await get_tree().create_timer(0.1).timeout;
-	if obj.is_picked_up(): return;
+	await get_tree().create_timer(0.15).timeout;
+	if not obj or obj.is_picked_up(): return;
 	if current_experiment == Experiment.HOLD:
 		timer.start(timer_duration)
 		timer.paused = true
