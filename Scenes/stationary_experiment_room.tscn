@@ -266,6 +266,7 @@ font_size = 20
 outline_size = 0
 
 [node name="Timer" type="Timer" parent="TimerBoard"]
+process_callback = 0
 one_shot = true
 
 [node name="Experiment" type="Node3D" parent="." node_paths=PackedStringArray("time_label", "idx_label", "timer", "move_experiment_node", "move_experiment_spawn")]
@@ -274,6 +275,7 @@ script = ExtResource("6_l3lkh")
 models = Array[PackedScene]([ExtResource("7_lewup"), ExtResource("8_ipxtg"), ExtResource("9_ey7jv"), ExtResource("10_ypgmb"), ExtResource("11_yf1vo"), ExtResource("13_i8x8v"), ExtResource("14_d8604"), ExtResource("15_ccpva"), ExtResource("16_mv6ci"), ExtResource("17_g5dmu"), ExtResource("18_wealm"), ExtResource("19_6vnwy"), ExtResource("20_1tt5i")])
 time_label = NodePath("../TimerBoard/TimeLabel")
 idx_label = NodePath("../TimerBoard/ExperimentLabel")
+timer_duration = 2
 timer = NodePath("../TimerBoard/Timer")
 move_experiment_node = NodePath("Hoops")
 move_experiment_spawn = NodePath("SpawnPoint2")
