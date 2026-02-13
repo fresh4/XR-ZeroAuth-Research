@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgvnj1rsupf0o"]
+
+[ext_resource type="AudioStream" uid="uid://wt5mcqictx1" path="res://Assets/Audio/impactWood_medium_004.ogg" id="1_hjpk2"]
+[ext_resource type="Script" path="res://Scripts/impact_sfx_player.gd" id="2_jakfe"]
+
+[node name="ImpactSFXPlayer" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_hjpk2")
+script = ExtResource("2_jakfe")
