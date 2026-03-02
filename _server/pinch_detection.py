@@ -24,14 +24,14 @@ options = HandLandmarkerOptions(
 landmarker = HandLandmarker.create_from_options(options)
 
 # --- Webcam ---
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
 
 timestamp = 0
 pinching = False
 
 # Distance thresholds (normalized coordinates 0–1)
-PINCH_START_THRESHOLD = 0.1
-PINCH_END_THRESHOLD = 0.15  # slightly larger to prevent flicker
+PINCH_START_THRESHOLD = 0.8
+PINCH_END_THRESHOLD = 0.85
 
 if __name__ == "__main__":
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -57,14 +57,29 @@ if __name__ == "__main__":
             dy = thumb_tip.y - index_tip.y
             dz = thumb_tip.z - index_tip.z
             distance = math.sqrt(dx*dx + dy*dy + dz*dz)
+            
+            # --- Hand scale (depth compensation) ---
+            index_mcp = hand[5]
+            pinky_mcp = hand[17]
+
+            scale_dx = index_mcp.x - pinky_mcp.x
+            scale_dy = index_mcp.y - pinky_mcp.y
+            scale_dz = index_mcp.z - pinky_mcp.z
+            hand_scale = math.sqrt(scale_dx*scale_dx + scale_dy*scale_dy + scale_dz*scale_dz)
+
+            # Avoid division by zero (rare but safe)
+            if hand_scale < 1e-6:
+                continue
+
+            normalized_distance = distance / hand_scale
 
             # Hysteresis logic
-            if not pinching and distance < PINCH_START_THRESHOLD:
+            if not pinching and normalized_distance < PINCH_START_THRESHOLD:
                 pinching = True
                 sock.sendto(b"PINCH", (UDP_IP, UDP_PORT))
                 print("PINCH START")
 
-            elif pinching and distance > PINCH_END_THRESHOLD:
+            elif pinching and normalized_distance > PINCH_END_THRESHOLD:
                 sock.sendto(b"RELEASE", (UDP_IP, UDP_PORT))
                 pinching = False
                 print("PINCH END")
@@ -82,6 +97,16 @@ if __name__ == "__main__":
             cv2.putText(frame, status, (30, 50),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         1, (0, 255, 0) if pinching else (0, 0, 255), 2)
+            # # Debug info
+            cv2.putText(
+                frame,
+                f"Pinch d: {normalized_distance:.2f}",
+                (30, 90),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.7,
+                (255, 255, 255),
+                2
+            )
 
         cv2.imshow("Pinch Detection", frame)
 
