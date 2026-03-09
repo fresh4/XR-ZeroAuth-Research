@@ -76,11 +76,11 @@ if __name__ == "__main__":
             # Hysteresis logic
             if not pinching and normalized_distance < PINCH_START_THRESHOLD:
                 pinching = True
-                sock.sendto(b"PINCH", (UDP_IP, UDP_PORT))
+                sock.sendto(b"PICKUP", (UDP_IP, UDP_PORT))
                 print("PINCH START")
 
             elif pinching and normalized_distance > PINCH_END_THRESHOLD:
-                sock.sendto(b"RELEASE", (UDP_IP, UDP_PORT))
+                sock.sendto(b"DROP", (UDP_IP, UDP_PORT))
                 pinching = False
                 print("PINCH END")
 
