@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3rc247u6y0xf"]
+[gd_scene load_steps=15 format=3 uid="uid://d3rc247u6y0xf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_u1ksl"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_5blie"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="6_j0i6y"]
 [ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="6_lql6c"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="7_g7ufi"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="9_lvkuj"]
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="9_s4lxe"]
 
 [sub_resource type="Resource" id="Resource_i1xvo"]
 script = ExtResource("5_rex2v")
@@ -95,7 +97,7 @@ controller_action_map = SubResource("Resource_ik7p7")
 hand_tracker_name = "/user/hand_tracker/right"
 
 [node name="LeftHandTracker" type="XRController3D" parent="."]
-tracker = &"/user/hand_pose_controller/left"
+tracker = &"left_hand"
 show_when_tracked = true
 
 [node name="FunctionPickup" parent="LeftHandTracker" instance=ExtResource("2_5blie")]
@@ -123,8 +125,10 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHandTracker/LeftHandArea"]
 shape = SubResource("SphereShape3D_dnjof")
 
+[node name="LeftHand" parent="LeftHandTracker" instance=ExtResource("9_s4lxe")]
+
 [node name="RightHandTracker" type="XRController3D" parent="."]
-tracker = &"/user/hand_pose_controller/right"
+tracker = &"right_hand"
 show_when_tracked = true
 
 [node name="FunctionPickup" parent="RightHandTracker" instance=ExtResource("2_5blie")]
@@ -139,3 +143,5 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightHandTracker/RightHandArea"]
 shape = SubResource("SphereShape3D_dnjof")
+
+[node name="RightHand" parent="RightHandTracker" instance=ExtResource("9_lvkuj")]
